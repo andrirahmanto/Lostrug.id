@@ -1,6 +1,7 @@
 <p align="center"> 
     <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/lostrug.png" align="center" height="200"></img>
 </p>
+<br><br><br><br>
 
 ## Team C Assignment 3 IMK
 1. Andri Rahmanto (1313618007)
