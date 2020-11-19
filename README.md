@@ -21,14 +21,34 @@ Pengguna dari website ini terbagi menjadi 2, yaitu:
 
 ### Admin
 
-## Use Case
+## UseCase Diagram
+<p align="center"> 
+    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/usecase_diagram/usecase.png" align="center" weight="300"></img>
+</p>
 
+## Entity Relation Diagram
+<p align="center"> 
+    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/entity_relation_diagram/erd.png" align="center" weight="500"></img>
+</p>
 
-## Mockup Website Losturg
-### Admin Mockup Prototype
+## Interaction Control
+Terdapat 2 Interaction Control, yaitu :
 
+### User Interaction Control
+<p align="center"> 
+    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/interaction_control/user/user_control.png" align="center" weight="500"></img>
+</p>
 
-### Client Mockup Prototype
+### Admin Interaction Control
+<p align="center"> 
+    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/interaction_control/admin/account/admin_account.png" align="center" weight="500"></img>
+</p>  \
+<p align="center"> 
+    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/interaction_control/admin/orders/admin_order.png" align="center" weight="500"></img>
+</p>  \
+<p align="center"> 
+    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/interaction_control/admin/products/admin_product.png" align="center" weight="500"></img>
+</p>
 
 ## Prototype Lostrug
 Link Prototype User : https://andrirahmanto.github.io/user/index.html \
