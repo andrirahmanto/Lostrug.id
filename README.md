@@ -38,6 +38,26 @@ Status pesanan dapat dilihat jika pelanggan telah Login dan telah melakukan peme
 
 
 ### Admin
+Manajemen Pesanan
+
+Admin dapat melihat pesanan, mengubah status pesanan suatu pesanan tertentu, membatalkan pesanan, menghapus pesanan.
+
+Manajemen Barang
+
+Admin dapat melihat barang, mengubah detail barang, menghapus barang.
+
+Manajemen Admin
+
+Admin dapat menambahkan akun admin, menghapus, mengubah, melihat akun yang telah mendaftar pada websitenya.
+
+Manajemen Keuangan
+
+Admin dapat melihat keuntungan pada waktu yang diinginkan.
+
+Login
+
+Admin tentu saja memiliki halaman login terpisah dari akun-akun biasa lainnya.
+
 
 ## UseCase Diagram
 <p align="center"> 
