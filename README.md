@@ -10,6 +10,7 @@
 ## Lostrug Website
 
 ## Tujuan
+Pembuatan aplikasi berbasis website Lostrug untuk memberikan kemudahan pelanggan dalam mencari produk-produk Lostrug. Disisi lain pengelola Lostrug bisa lebih leluasa dalam memberikan aturan ataupun diskon-diskon dari produk mereka. Kemudian website yang disusun juga menampilkan tampilan yang mudah dimengerti oleh pelanggan dan juga mengefektifkan penggunaan tombol-tombol, agar memberikan kemudahan untuk pelanggan dalam menjelajah website Lostrug nantinya.
 
 ## Requirement Analysis Video
 Link video: https://youtu.be/2ujlcw6T1MM
@@ -19,6 +20,22 @@ Link video: https://youtu.be/2ujlcw6T1MM
 ## Fitur
 Pengguna dari website ini terbagi menjadi 2, yaitu:
 ### Customer
+Home dan About Us
+
+Pada halaman ini tentu saja pelanggan akan diperkenalkan dengan perusahaan Lostrug (mengenai pendiri dan partner) dan juga ditampilkan beberapa barang, ada juga pengumuman dari Lostrug tentang produknya.
+
+Katalog
+
+Berbeda dari yang ada di Home, pada bagian Katalog semua produk Lostrug akan ditampilkan disini, untuk melihat detail produk pelanggan dapat mengklik salah satu produk yang diinginkan, namun untuk melakukan pembelian pelanggan diharuskan login terlebih dahulu.
+
+Login
+
+Untuk melakukan transaksi pada website Lostrug maka dibutuhkan Login, dan Login disini hanya menggunakan akun google, hal ini dilakukan untuk mempermudah pelanggan agar tidak melakukan pendaftaran secara manual.
+
+Status Pesanan
+
+Status pesanan dapat dilihat jika pelanggan telah Login dan telah melakukan pemesanan suatu produk, sehingga dapat meng-track pesanan terhadap produk yang diinginkannya sudah sampai tahap apa
+
 
 ### Admin
 
