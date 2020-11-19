@@ -14,6 +14,8 @@
 ## Requirement Analysis Video
 Link video: https://youtu.be/2ujlcw6T1MM
 
+## Requirement Gathering
+
 ## Fitur
 Pengguna dari website ini terbagi menjadi 2, yaitu:
 ### Customer
