@@ -31,7 +31,7 @@ Pengguna dari website ini terbagi menjadi 2, yaitu:
 ### Client Mockup Prototype
 
 ## Prototype Lostrug
-Link Prototype User : https://andrirahmanto.github.io/user/index.html
+Link Prototype User : https://andrirahmanto.github.io/user/index.html \
 Link Prototype Admin : https://andrirahmanto.github.io/admin/index.html
 
 ## Feedback Video
