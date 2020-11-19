@@ -15,8 +15,6 @@ Pembuatan aplikasi berbasis website Lostrug untuk memberikan kemudahan pelanggan
 ## Requirement Analysis Video
 Link video: https://youtu.be/2ujlcw6T1MM
 
-## Requirement Gathering
-
 ## Fitur
 Pengguna dari website ini terbagi menjadi 2, yaitu:
 ### Customer
@@ -57,6 +55,12 @@ Admin dapat melihat keuntungan pada waktu yang diinginkan.
 Login
 
 Admin tentu saja memiliki halaman login terpisah dari akun-akun biasa lainnya.
+
+## Proses Sebelumnya
+Sebelumnya Lostrug hanya mengandalkan website e-commerce umum untuk menjual produknya atau dengan mengandalkan media sosial untuk melakukan penjualan produknya. Belum memiliki website sendiri untuk mengenalkan produknya.
+
+##Proses Yang diharapkan
+Yang diharapkan dari pembuatan project adalah Lostrug makin ekslusif produk-produknya, memiliki pelanggan setia di websitenya sendiri, websitenya dapat bersaing dengan website-website lainnya karena memiliki tampilan yang mudah dimengerti dan tombol-tombol yang efisien, dan tentu saja memberikan pengalaman terbaik untuk pelanggan dalam berbelanja di website Lostrug sehingga meningkatkan nama produknya dan juga meningkatkan penjualannya.
 
 
 ## UseCase Diagram
