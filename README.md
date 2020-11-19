@@ -1,5 +1,5 @@
 <p align="center"> 
-    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/lostrug.pngg" align="center" height="200"></img>
+    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/lostrug.png" align="center" height="200"></img>
 </p>
 
 ## Team C Assignment 3 IMK
