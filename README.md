@@ -38,4 +38,4 @@ Link Prototype Admin : https://andrirahmanto.github.io/admin/index.html
 Link video: https://youtu.be/YiNVFgvAtgA
 
 ## Academic Report Lostrug
-[Academic Report Lostrug](AcademicReportLostrug.pdf)
+[Academic Report Lostrug](Laporan_Imk.pdf)
