@@ -1,3 +1,7 @@
+<p align="center"> 
+    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/lostrug.pngg" align="center" height="200"></img>
+</p>
+
 ## Team C Assignment 3 IMK
 1. Andri Rahmanto (1313618007)
 2. Khulaifi Alkatsiri (1313618036)
