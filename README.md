@@ -24,7 +24,7 @@ Pengguna dari website ini terbagi menjadi 2, yaitu:
 ## Use Case
 
 
-## Mockup Website NitipBayar
+## Mockup Website Losturg
 ### Admin Mockup Prototype
 
 
