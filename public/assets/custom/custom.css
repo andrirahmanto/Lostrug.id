@@ -1,0 +1,197 @@
+html, body {
+    color: rgba(33, 37, 41, 1);
+    font-family: "popins", "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    background-color:white;
+}
+
+/* navbar */
+.navbar-balck{
+    background-color: black !important;
+}
+.brand-image{
+    width: 200px;
+}
+.icon-nav{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+/* end navbar */
+
+/* menu */
+.menu{
+    background-color: none;
+}
+/* end menu */
+
+/* new product */
+.custom-title{
+    margin-top: 40px;
+    
+}
+
+.image-card{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-product{
+    width: 80%;
+    background-color: white;
+    box-shadow: 0px 15px 12px rgba(0, 0, 0, 0.22), 0px 19px 38px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.text-price{
+    font-style: normal;
+    font-weight: bold;
+    color: black;
+}
+
+.text-product-name{
+    font-style: normal;
+    font-weight: lighter;
+    color: black;
+}
+
+.row{
+    margin-top: 40px;
+}
+/* end new product */
+
+/* footer */
+footer {
+    margin-top: 70px;
+}
+.footer-black{
+    background-color: black;
+}
+
+.footer-margin{
+    padding: 10px;
+}
+
+.footer-heading{
+    color: white;
+}
+
+.footer-item{
+    color: white;    
+}
+
+.footer-item a{
+    color: white;
+}
+
+.footer-copyright{
+    color: white;
+}
+/* end footer */
+
+
+
+/* catalogue */
+.card-catalogue{
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 15px 12px rgba(0, 0, 0, 0.22), 0px 19px 38px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.text-price-catalogue{
+    font-style: normal;
+    font-weight: bold;
+    color: black;
+    font-size: 90% !important;
+}
+
+.text-product-name-catalogue{
+    font-style: normal;    
+    color: black;
+    font-size: 90% !important;
+}
+
+.category .title{
+    font-style: normal;
+    margin-top: 20px;
+    font-size: 100% !important;
+}
+
+.category .hr{
+    color: black;
+    border-top: 2px solid;
+}
+
+.category .item{
+    margin-left: 20px;
+    font-style: normal;
+    margin-top: 10px;
+    font-size: 90% !important;
+}
+
+.category .hr-item{
+    margin-left: 20px;
+    color: gray;
+    border-top: 1px solid;
+}
+/* end catalogue */
+
+
+/* detail */
+.detail-card{    
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 15px 12px rgba(0, 0, 0, 0.22), 0px 19px 38px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 0px;
+}
+
+.detail-card .card-body{
+    margin-bottom: 20px;
+    padding-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.detail-image{
+    width: 100%;
+}
+
+.detail-product-name{
+    font-style: normal;
+    font-weight: lighter;
+    margin-top: 20px;    
+    font-size: 1.5rem;
+}
+
+.detail-price{
+    font-style: normal;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.detail-size{
+    font-style: normal;
+    font-weight: lighter;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.form-margin{
+    margin-top: 40px;
+}
+
+.btn-buy{
+    background-color: black;
+    width: 100%;
+    border-radius: 20px;
+}
+/* end detail */

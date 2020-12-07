@@ -1,103 +1,57 @@
-<p align="center"> 
-    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/lostrug.png" align="center" width="300"></img>
-</p>
+# CodeIgniter 4 Framework
 
-## Team C Assignment 3 IMK
-1. Andri Rahmanto (1313618007)
-2. Khulaifi Alkatsiri (1313618036)
-3. Resa Fajar Sukma (1313618029)
+## What is CodeIgniter?
 
-## Lostrug Website
+CodeIgniter is a PHP full-stack web framework that is light, fast, flexible, and secure. 
+More information can be found at the [official site](http://codeigniter.com).
 
-## Tujuan
-Pembuatan aplikasi berbasis website Lostrug untuk memberikan kemudahan pelanggan dalam mencari produk-produk Lostrug. Disisi lain pengelola Lostrug bisa lebih leluasa dalam memberikan aturan ataupun diskon-diskon dari produk mereka. Kemudian website yang disusun juga menampilkan tampilan yang mudah dimengerti oleh pelanggan dan juga mengefektifkan penggunaan tombol-tombol, agar memberikan kemudahan untuk pelanggan dalam menjelajah website Lostrug nantinya.
+This repository holds the distributable version of the framework,
+including the user guide. It has been built from the 
+[development repository](https://github.com/codeigniter4/CodeIgniter4).
 
-## Requirement Analysis Video
-Link video: https://youtu.be/2ujlcw6T1MM
+More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
 
-## Fitur
-Pengguna dari website ini terbagi menjadi 2, yaitu:
-### Customer
-Home dan About Us
-
-Pada halaman ini tentu saja pelanggan akan diperkenalkan dengan perusahaan Lostrug (mengenai pendiri dan partner) dan juga ditampilkan beberapa barang, ada juga pengumuman dari Lostrug tentang produknya.
-
-Katalog
-
-Berbeda dari yang ada di Home, pada bagian Katalog semua produk Lostrug akan ditampilkan disini, untuk melihat detail produk pelanggan dapat mengklik salah satu produk yang diinginkan, namun untuk melakukan pembelian pelanggan diharuskan login terlebih dahulu.
-
-Login
-
-Untuk melakukan transaksi pada website Lostrug maka dibutuhkan Login, dan Login disini hanya menggunakan akun google, hal ini dilakukan untuk mempermudah pelanggan agar tidak melakukan pendaftaran secara manual.
-
-Status Pesanan
-
-Status pesanan dapat dilihat jika pelanggan telah Login dan telah melakukan pemesanan suatu produk, sehingga dapat meng-track pesanan terhadap produk yang diinginkannya sudah sampai tahap apa
+The user guide corresponding to this version of the framework can be found
+[here](https://codeigniter4.github.io/userguide/). 
 
 
-### Admin
-Manajemen Pesanan
+## Important Change with index.php
 
-Admin dapat melihat pesanan, mengubah status pesanan suatu pesanan tertentu, membatalkan pesanan, menghapus pesanan.
+`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
+for better security and separation of components.
 
-Manajemen Barang
+This means that you should configure your web server to "point" to your project's *public* folder, and
+not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
+framework are exposed.
 
-Admin dapat melihat barang, mengubah detail barang, menghapus barang.
+**Please** read the user guide for a better explanation of how CI4 works!
+The user guide updating and deployment is a bit awkward at the moment, but we are working on it!
 
-Manajemen Admin
+## Repository Management
 
-Admin dapat menambahkan akun admin, menghapus, mengubah, melihat akun yang telah mendaftar pada websitenya.
+We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
+We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
+FEATURE REQUESTS.
 
-Manajemen Keuangan
+This repository is a "distribution" one, built by our release preparation script. 
+Problems with it can be raised on our forum, or as issues in the main repository.
 
-Admin dapat melihat keuntungan pada waktu yang diinginkan.
+## Contributing
 
-Login
+We welcome contributions from the community.
 
-Admin tentu saja memiliki halaman login terpisah dari akun-akun biasa lainnya.
+Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/contributing.md) section in the development repository.
 
-## Proses Sebelumnya
-Sebelumnya Lostrug hanya mengandalkan website e-commerce umum untuk menjual produknya atau dengan mengandalkan media sosial untuk melakukan penjualan produknya. Belum memiliki website sendiri untuk mengenalkan produknya.
+## Server Requirements
 
-##Proses Yang diharapkan
-Yang diharapkan dari pembuatan project adalah Lostrug makin ekslusif produk-produknya, memiliki pelanggan setia di websitenya sendiri, websitenya dapat bersaing dengan website-website lainnya karena memiliki tampilan yang mudah dimengerti dan tombol-tombol yang efisien, dan tentu saja memberikan pengalaman terbaik untuk pelanggan dalam berbelanja di website Lostrug sehingga meningkatkan nama produknya dan juga meningkatkan penjualannya.
+PHP version 7.2 or higher is required, with the following extensions installed: 
 
+- [intl](http://php.net/manual/en/intl.requirements.php)
+- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
 
-## UseCase Diagram
-<p align="center"> 
-    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/usecase_diagram/usecase.png" align="center" ></img>
-</p>
+Additionally, make sure that the following extensions are enabled in your PHP:
 
-## Entity Relation Diagram
-<p align="center"> 
-    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/entity_relation_diagram/erd.png" align="center"></img>
-</p>
-
-## Interaction Control
-Terdapat 2 Interaction Control, yaitu :
-
-### User Interaction Control
-<p align="center"> 
-    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/interaction_control/user/user_control.png" align="center" ></img>
-</p>
-
-### Admin Interaction Control
-<p align="center"> 
-    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/interaction_control/admin/account/admin_account.png" align="center"></img>
-</p>  \
-<p align="center"> 
-    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/interaction_control/admin/orders/admin_order.png" align="center"></img>
-</p>  \
-<p align="center"> 
-    <img src="https://github.com/andrirahmanto/Lostrug.id/blob/master/interaction_control/admin/products/admin_product.png" align="center"></img>
-</p>
-
-## Prototype Lostrug
-Link Prototype User : https://andrirahmanto.github.io/user/index.html \
-Link Prototype Admin : https://andrirahmanto.github.io/admin/index.html
-
-## Feedback Video
-Link video: https://youtu.be/YiNVFgvAtgA
-
-## Academic Report Lostrug
-[Academic Report Lostrug](Laporan_Imk.pdf)
+- json (enabled by default - don't turn it off)
+- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
+- xml (enabled by default - don't turn it off)
