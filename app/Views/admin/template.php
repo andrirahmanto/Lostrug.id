@@ -119,7 +119,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>1</td>
+                            <td>2</td>
                             <td>
                                 <img class="img-fluid" style="width: 100px;" src="../assets/image/1604991081160.jpg" alt="">
                             </td>
