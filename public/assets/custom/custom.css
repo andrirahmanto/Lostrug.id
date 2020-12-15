@@ -195,3 +195,28 @@ footer {
     border-radius: 20px;
 }
 /* end detail */
+
+/* from order */
+
+.title-form-order{
+    margin-top: 40px;
+}
+
+.btn-order{
+    margin-top: 20px;
+}
+/* end from order */
+
+
+
+
+
+
+/* --------------------------------------------------------------------------------------Admin-------------------------------------------------------------------------------------- */
+.namaadmin{
+    color: white;    
+}
+
+.pemberitahuan{
+    margin-bottom: 20px;
+}
