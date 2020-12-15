@@ -18,10 +18,10 @@
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    <!-- Datatables -->
+    <link rel="stylesheet" type="text/css" href="assets/datatable/datatables.css">
 
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-
+    <script type="text/javascript" charset="utf8" src="assets/datatable/datatables.js"></script>
 
     <title>Hello, world!</title>
 </head>
