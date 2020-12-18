@@ -6,6 +6,6 @@ class Order extends BaseController
 {
     public function index()
     {
-        echo view('admin/template.php');
+        echo view('admin/tableorder.php');
     }
 }
