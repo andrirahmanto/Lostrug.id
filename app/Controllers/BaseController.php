@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 /**
@@ -15,6 +16,12 @@ namespace App\Controllers;
  */
 
 use CodeIgniter\Controller;
+use App\Libraries\Notifications;
+use App\Models\ModelProduct;
+use App\Models\ModelOrder;
+use App\Models\ModelUser;
+use App\Models\ModelAdmin;
+use App\Models\ModelStatus;
 
 class BaseController extends Controller
 {
@@ -26,7 +33,29 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = [];
+	protected $helpers = ['form', 'date'];
+	protected $session = null;
+	protected $request = null;
+	protected $product;
+	protected $order;
+	protected $user;
+	protected $admin;
+	protected $status;
+	protected $notif;
+
+	public function __construct()
+	{
+		$this->session = session();
+		$this->request = \Config\Services::request();
+		$this->product = new ModelProduct();
+		$this->order = new ModelOrder();
+		// $this->user = new ModelUser();
+		// $this->admin = new ModelAdmin();
+		// $this->statusorder = new ModelStatus();
+		$this->notif = new Notifications();
+		$this->config    = new \Config\Encryption();      // load the configuration for the encryption service
+		// $this->encrypter = \Config\Services::encrypter($this->config); // start the encryption service
+	}
 
 	/**
 	 * Constructor.
@@ -42,5 +71,4 @@ class BaseController extends Controller
 		// E.g.:
 		// $this->session = \Config\Services::session();
 	}
-
 }
