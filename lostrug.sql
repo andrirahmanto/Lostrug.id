@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Des 2020 pada 20.02
+-- Waktu pembuatan: 18 Des 2020 pada 13.15
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -65,16 +65,19 @@ CREATE TABLE `order` (
   `order_payment` int(11) DEFAULT NULL,
   `order_total_price` int(11) DEFAULT NULL,
   `order_payment_method` varchar(50) DEFAULT NULL,
-  `order_payment_image` varchar(50) DEFAULT NULL
+  `order_payment_image` varchar(50) DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `order`
 --
 
-INSERT INTO `order` (`order_id`, `user_id`, `product_id`, `order_key`, `order_numberphone`, `order_address`, `order_size`, `order_amount`, `pesanan_ongkir`, `order_status`, `order_payment`, `order_total_price`, `order_payment_method`, `order_payment_image`) VALUES
-(30, 9, 1, '7103130307', '08127346512', 'jalan sumur batu jakarta pusat, kecamatan kemayoran', 43, 2, 20000, 4, 1, 469124, 'OVO', 'bukti.jpeg'),
-(31, 9, 1, '6131760626', '081234596254', 'Jl kramat sentiong Gg1', 40, 1, 20000, 1, 0, 244489, NULL, NULL);
+INSERT INTO `order` (`order_id`, `user_id`, `product_id`, `order_key`, `order_numberphone`, `order_address`, `order_size`, `order_amount`, `pesanan_ongkir`, `order_status`, `order_payment`, `order_total_price`, `order_payment_method`, `order_payment_image`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(30, 9, 1, '7103130307', '08127346512', 'jalan sumur batu jakarta pusat, kecamatan kemayoran', 43, 2, 20000, 4, 1, 469124, 'OVO', 'bukti.jpeg', NULL, NULL, NULL),
+(31, 9, 1, '6131760626', '081234596254', 'Jl kramat sentiong Gg1', 40, 1, 20000, 1, 0, 244489, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -89,17 +92,20 @@ CREATE TABLE `product` (
   `product_image` varchar(50) DEFAULT NULL,
   `product_description` varchar(100) DEFAULT NULL,
   `product_stock` int(11) NOT NULL,
-  `product_price` int(11) NOT NULL
+  `product_price` int(11) NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `product`
 --
 
-INSERT INTO `product` (`product_id`, `product_name`, `product_info`, `product_image`, `product_description`, `product_stock`, `product_price`) VALUES
-(10, '\'You are under my control\'', 'T-shirt (black)', '1604991040283.jpg', NULL, 19, 189000),
-(11, '\'Miracle of Struggle\'', 'T-shirt (white)', '1604991085067.jpg', NULL, 23, 189000),
-(12, '\'Lost Struggle\'', 'T-shirt (black)', '1604991081160.jpg', NULL, 27, 189000);
+INSERT INTO `product` (`product_id`, `product_name`, `product_info`, `product_image`, `product_description`, `product_stock`, `product_price`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(10, '\'You are under my control\'', 'T-shirt (black)', '1604991040283.jpg', NULL, 19, 189000, NULL, NULL, NULL),
+(11, '\'Miracle of Struggle\'', 'T-shirt (white)', '1604991085067.jpg', NULL, 23, 189000, NULL, NULL, NULL),
+(12, '\'Lost Struggle\'', 'T-shirt (black)', '1604991081160.jpg', NULL, 27, 189000, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
