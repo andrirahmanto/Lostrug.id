@@ -17,6 +17,7 @@
         </ul>
     </div>
     <div class="card-body">
+        <a type="button" class="btn btn-success float-right mb-3 addbutton">Add Product</a>
         <table id="tabel-orders" class="table table-bordered table-hover">
             <thead>
                 <tr>
@@ -52,6 +53,7 @@
     </div>
 </div>
 <!-- End Table -->
+<div class="viewmodal" style="display: none;"></div>
 
 <?= $this->endSection(); ?>
 
@@ -61,6 +63,22 @@
         $('#tabel-orders').DataTable({
             "responsive": true,
             "autoWidth": false,
+        });
+
+        $('.addbutton').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: "admin/product/add",
+                dataType: "json",
+                success: function(response) {
+                    $('.viewmodal').html(response.data).show();
+
+                    $('#modaladd').modal('show');
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alret(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+                }
+            });
         });
     });
 </script>

@@ -10,4 +10,18 @@ class Product extends BaseController
         $data['products'] = $this->product->findAll();
         echo view('admin/product/table.php', $data);
     }
+
+    public function viewadd()
+    {
+        // if ($this->request->isAJAX()) {
+
+        $msg = [
+            'data' => view('admin/product/modaladd')
+        ];
+
+        echo json_encode($msg);
+        // } else {
+        //     exit('Maaf Tidak dapat di proses');
+        // }
+    }
 }
