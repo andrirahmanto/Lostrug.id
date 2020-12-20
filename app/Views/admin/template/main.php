@@ -22,8 +22,11 @@
 
     <!-- Datatables -->
     <link rel="stylesheet" type="text/css" href="assets/datatable/datatables.css">
-
     <script type="text/javascript" charset="utf8" src="assets/datatable/datatables.js"></script>
+
+    <!-- sweetalret -->
+    <link rel="stylesheet" type="text/css" href="assets/sweetalert2/package/dist/sweetalret2.min.css">
+    <script src="assets/sweetalert2/package/dist/sweetalret2.all.min.js"></script>
 
     <title>Hello, world!</title>
 </head>

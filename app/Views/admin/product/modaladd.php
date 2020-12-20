@@ -7,44 +7,112 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <?= form_open('admin/product/createProduct', ['class' => 'formaddproduct']); ?>
             <div class="modal-body">
-                <form action="<?= base_url(); ?>/admin/addadmin" method="post" class="user" enctype="multipart/form-data">
-                    <!-- name -->
-                    <div class="form-group">
-                        <label>Name</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" required>
+                <!-- name -->
+                <div class="form-group">
+                    <label>Name</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="name" required>
+                        <div class="invalid-feedback errorname"></div>
+                    </div>
+                </div>
+                <!-- info -->
+                <div class="form-group">
+                    <label>info</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="info" required>
+                        <div class="invalid-feedback errorinfo"></div>
+                    </div>
+                </div>
+                <!-- Price -->
+                <div class="form-group">
+                    <label>Price</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="price" required>
+                        <div class="invalid-feedback errorprice"></div>
+                    </div>
+                </div>
+                <!-- Stock -->
+                <div class="form-group">
+                    <label>Stock</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="stock" required>
+                        <div class="invalid-feedback errorstock"></div>
+                    </div>
+                </div>
+                <!-- image -->
+                <div class="form-group">
+                    <label>Image</label>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="file" name="file_upload" id="image" required>
                         </div>
                     </div>
-                    <!-- Price -->
-                    <div class="form-group">
-                        <label>Price</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" required>
-                        </div>
-                    </div>
-                    <!-- Stock -->
-                    <div class="form-group">
-                        <label>Stock</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" required>
-                        </div>
-                    </div>
-                    <!-- image -->
-                    <div class="form-group">
-                        <label>Image</label>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <input type="file" name="file_upload" id="" required>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Add Product</button>
+                <button type="submit" class="btn btn-primary btn-addproduct">Add Product</button>
             </div>
+            <?= form_close(); ?>
         </div>
     </div>
 </div>
+<Script>
+    $(document).ready(function() {
+        $('.formaddproduct').submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "post",
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                dataType: "json",
+                beforeSend: function() {
+                    $('.btn-addproduct').attr('disabled', 'disabled');
+                    $('.btn-addproduct').html('<i class="fa fa-spin fa-spinner"></i>');
+                },
+                complete: function() {
+                    $('.btn-addproduct').removeAttr('disabled');
+                    $('.btn-addproduct').html('Add Product');
+                },
+                success: function(response) {
+                    if (response.error) {
+                        if (response.error.name) {
+                            $('#name').addClass('is-invalid');
+                            $('.errorname').html(response.error.name);
+                        } else {
+                            $('#name').removeClass('is-invalid');
+                            $('.errorname').html('');
+                        };
+                        if (response.error.stock) {
+                            $('#price').addClass('is-invalid');
+                            $('.errorprice').html(response.error.price);
+                        } else {
+                            $('#price').removeClass('is-invalid');
+                            $('.errorprice').html('');
+                        };
+                        if (response.error.stock) {
+                            $('#stock').addClass('is-invalid');
+                            $('.errorstock').html(response.error.stock);
+                        } else {
+                            $('#stock').removeClass('is-invalid');
+                            $('.errorstock').html('');
+                        };
+                    } else {
+                        Swal.fire({
+                            icon: 'success',
+                            titel: 'success',
+                            text: response.success
+                        })
+
+                    };
+
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alret(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+                }
+            });
+        });
+    });
+</Script>

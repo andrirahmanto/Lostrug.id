@@ -34,6 +34,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/admin', 'Product::index');
 $routes->get('/admin/product/add', 'Product::viewadd');
+$routes->post('/admin/product/createProduct', 'Product::createProduct');
+
 
 /**
  * --------------------------------------------------------------------

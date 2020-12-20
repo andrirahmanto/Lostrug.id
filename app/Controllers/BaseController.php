@@ -55,6 +55,7 @@ class BaseController extends Controller
 		$this->notif = new Notifications();
 		$this->config    = new \Config\Encryption();      // load the configuration for the encryption service
 		// $this->encrypter = \Config\Services::encrypter($this->config); // start the encryption service
+		$this->validation = \Config\Services::validation();
 	}
 
 	/**

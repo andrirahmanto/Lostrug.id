@@ -60,11 +60,13 @@
 <?= $this->section('script'); ?>
 <script>
     $(document).ready(function() {
+        // datatable
         $('#tabel-orders').DataTable({
             "responsive": true,
             "autoWidth": false,
         });
 
+        // open modal add product
         $('.addbutton').click(function(e) {
             e.preventDefault();
             $.ajax({
