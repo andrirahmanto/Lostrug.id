@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <label>Name</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="name" required>
+                        <input type="text" class="form-control" id="name" name="name" required>
                         <div class="invalid-feedback errorname"></div>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label>info</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="info" required>
+                        <input type="text" class="form-control" id="info" name="info" required>
                         <div class="invalid-feedback errorinfo"></div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label>Price</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="price" required>
+                        <input type="text" class="form-control" id="price" name="price" required>
                         <div class="invalid-feedback errorprice"></div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                 <div class="form-group">
                     <label>Stock</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="stock" required>
+                        <input type="text" class="form-control" id="stock" name="stock" required>
                         <div class="invalid-feedback errorstock"></div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <label>Image</label>
                     <div class="card-body">
                         <div class="form-group">
-                            <input type="file" name="file_upload" id="image" required>
+                            <input type="file" name="file_upload" id="image" name="image">
                         </div>
                     </div>
                 </div>
@@ -103,14 +103,13 @@
                         Swal.fire({
                             icon: 'success',
                             titel: 'success',
-                            text: response.success
+                            text: 'yes'
                         })
-
                     };
 
                 },
                 error: function(xhr, ajaxOptions, thrownError) {
-                    alret(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+                    alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
                 }
             });
         });
