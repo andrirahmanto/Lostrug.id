@@ -21,12 +21,12 @@
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
     <!-- Datatables -->
-    <link rel="stylesheet" type="text/css" href="assets/datatable/datatables.css">
-    <script type="text/javascript" charset="utf8" src="assets/datatable/datatables.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/datatable/datatables.css">
+    <script type="text/javascript" charset="utf8" src="<?= base_url(); ?>/assets/datatable/datatables.js"></script>
 
     <!-- sweetalret -->
-    <link rel="stylesheet" type="text/css" href="assets/sweetalert2/package/dist/sweetalert2.min.css">
-    <script src="assets/sweetalert2/package/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/sweetalert2/package/dist/sweetalert2.min.css">
+    <script src="<?= base_url(); ?>/assets/sweetalert2/package/dist/sweetalert2.all.min.js"></script>
 
     <title>Hello, world!</title>
 </head>

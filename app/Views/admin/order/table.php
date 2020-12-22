@@ -6,10 +6,10 @@
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="admin/order">Order</a>
+                <a class="nav-link active" href="#">Order</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="#">Product</a>
+                <a class="nav-link" href="#">Product</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Account</a>
@@ -17,7 +17,7 @@
         </ul>
     </div>
     <div class="card-body">
-        <a type="button" class="btn btn-success float-right mb-3 addbutton">Add Product</a>
+        <a type="button" class="btn btn-success float-right mb-3 addbutton">Add Order</a>
         <table id="tabel-orders" class="table table-bordered table-hover">
             <thead>
                 <tr>
