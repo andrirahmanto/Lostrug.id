@@ -36,9 +36,10 @@ $routes->get('/', 'Home::index');
 $routes->get('/admin', 'Product::index');
 $routes->get('/admin/product', 'Product::index');
 $routes->get('/admin/product/viewtable', 'Product::viewtable');
-$routes->get('/admin/product/add', 'Product::viewadd');
-$routes->post('/admin/product/add', 'Product::createProduct');
+$routes->get('/admin/product/viewadd', 'Product::viewadd');
 $routes->post('/admin/product/createProduct', 'Product::createProduct');
+$routes->post('/admin/product/viewedit', 'Product::viewedit');
+$routes->post('/admin/product/updateProduct', 'Product::updateProduct');
 // Order
 $routes->get('/admin/order', 'Order::index');
 

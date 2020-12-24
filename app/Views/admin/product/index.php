@@ -59,11 +59,10 @@
         $('.addbutton').click(function(e) {
             e.preventDefault();
             $.ajax({
-                url: "<?= base_url('admin/product/add'); ?>",
+                url: "<?= base_url('admin/product/viewadd'); ?>",
                 dataType: "json",
                 success: function(response) {
                     $('.viewmodal').html(response.data).show();
-
                     $('#modaladd').modal('show');
                 },
                 error: function(xhr, ajaxOptions, thrownError) {
@@ -72,5 +71,25 @@
             });
         });
     });
+
+    function edit(product_id) {
+        $.ajax({
+            type: "post",
+            url: "<?= base_url('admin/product/viewedit'); ?>",
+            dataType: "json",
+            data: {
+                product_id: product_id
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('.viewmodal').html(response.success).show();
+                    $('#modaledit').modal('show');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    };
 </script>
 <?= $this->endSection(); ?>

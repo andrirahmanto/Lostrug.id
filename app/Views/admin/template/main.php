@@ -21,8 +21,8 @@
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
     <!-- Datatables -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/datatable/datatables.css">
-    <script type="text/javascript" charset="utf8" src="<?= base_url(); ?>/assets/datatable/datatables.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/datatable/datatables.min.css">
+    <script type="text/javascript" charset="utf8" src="<?= base_url(); ?>/assets/datatable/datatables.min.js"></script>
 
     <!-- sweetalret -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/sweetalert2/package/dist/sweetalert2.min.css">

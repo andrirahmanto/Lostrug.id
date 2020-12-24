@@ -21,8 +21,8 @@
                 <td><?php echo $data['product_stock']; ?></td>
                 <td>
                     <div class="btn-group">
-                        <a href="admin/detail/product/" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modaleditproduct"><i class="fas fa-edit"></i></a>
-                        <a href="admin/delete/product/" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus pesanan ini?')"><i class="fas fa-trash-alt"></i></a>
+                        <a type="button" class="btn btn-primary btn-sm" onclick="edit('<?php echo $data['product_id']; ?>')"><i class="fas fa-edit"></i></a>
+                        <a type="button" class="btn btn-danger btn-sm" onclick="del('<?php echo $data['product_id']; ?>')"><i class="fas fa-trash-alt"></i></a>
                     </div>
                 </td>
             </tr>

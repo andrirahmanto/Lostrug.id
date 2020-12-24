@@ -33,7 +33,7 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = ['form', 'date', 'url'];
+	protected $helpers = ['form', 'date', 'url', 'file'];
 	protected $session = null;
 	protected $request = null;
 	protected $product;
