@@ -159,7 +159,7 @@ class Product extends BaseController
                 $this->product->update($id, $data);
 
                 $msg = [
-                    'success' => 'Success Add Product'
+                    'success' => 'Success Update Product'
                 ];
             };
 
@@ -168,5 +168,26 @@ class Product extends BaseController
         } else {
             exit('Sorry, the request could not be processed');
         };
+    }
+
+    public function deleteProduct()
+    {
+        if ($this->request->isAJAX()) {
+            $product_id = $this->request->getVar('product_id');
+            // detele old foto
+            $olddata = $this->product->find($product_id);
+            $oldimage = $olddata['product_image'];
+            if ($oldimage != NULL || $oldimage != '') {
+                unlink('assets/image/' . $oldimage);
+            };
+            // delete data
+            $this->product->delete($product_id);
+            $msg = [
+                'success' => 'Success Delete Product'
+            ];
+            echo json_encode($msg);
+        } else {
+            exit('Sorry, the request could not be processed');
+        }
     }
 }

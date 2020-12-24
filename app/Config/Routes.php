@@ -40,6 +40,7 @@ $routes->get('/admin/product/viewadd', 'Product::viewadd');
 $routes->post('/admin/product/createProduct', 'Product::createProduct');
 $routes->post('/admin/product/viewedit', 'Product::viewedit');
 $routes->post('/admin/product/updateProduct', 'Product::updateProduct');
+$routes->post('/admin/product/deleteProduct', 'Product::deleteProduct');
 // Order
 $routes->get('/admin/order', 'Order::index');
 
