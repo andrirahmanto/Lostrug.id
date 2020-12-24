@@ -7,8 +7,20 @@ class Product extends BaseController
 
     public function index()
     {
-        $data['products'] = $this->product->findAll();
-        echo view('admin/product/table.php', $data);
+        echo view('admin/product/index.php');
+    }
+
+    public function viewtable()
+    {
+        if ($this->request->isAJAX()) {
+            $data['products'] = $this->product->findAll();
+            $msg = [
+                'data' => view('admin/product/table', $data)
+            ];
+            echo json_encode($msg);
+        } else {
+            exit('Sorry, the request could not be processed');
+        }
     }
 
     public function viewadd()
@@ -28,9 +40,9 @@ class Product extends BaseController
         if ($this->request->isAJAX()) {
             //validation
             $valid = $this->validate([
-                'name' => 'is_unique[product.product_name]',
-                'price' => 'numeric',
-                'stock' => 'numeric'
+                'name' => 'required|is_unique[product.product_name]',
+                'price' => 'required|numeric',
+                'stock' => 'required|numeric'
             ]);
 
             // if not valid
@@ -48,7 +60,7 @@ class Product extends BaseController
                 if ($image == '') {
                     $imgname = '';
                 } else {
-                    $image->move('image');
+                    $image->move('assets/image');
                     $imgname = $image->getName();
                 };
 

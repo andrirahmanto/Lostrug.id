@@ -7,8 +7,19 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?= form_open('admin/product/createProduct', ['class' => 'formaddproduct']); ?>
+            <?= form_open_multipart('admin/product/createProduct', ['class' => 'formaddproduct']); ?>
+            <?= csrf_field(); ?>
+            <!-- , 'enctype' => 'multipart/form-data' -->
             <div class="modal-body">
+                <!-- image -->
+                <div class="form-group">
+                    <label>Image</label>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="file" id="image" name="image">
+                        </div>
+                    </div>
+                </div>
                 <!-- name -->
                 <div class="form-group">
                     <label>Name</label>
@@ -41,15 +52,6 @@
                         <div class="invalid-feedback errorstock"></div>
                     </div>
                 </div>
-                <!-- image -->
-                <div class="form-group">
-                    <label>Image</label>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <input type="file" name="file_upload" id="image" name="image">
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -63,10 +65,16 @@
     $(document).ready(function() {
         $('.formaddproduct').submit(function(e) {
             e.preventDefault();
+            let form = $('.formaddproduct')[0];
+            let data = new FormData(form);
             $.ajax({
                 type: "post",
                 url: $(this).attr("action"),
-                data: $(this).serialize(),
+                data: data,
+                enctype: 'multipart/form-data',
+                processData: false,
+                contentType: false,
+                cache: false,
                 dataType: "json",
                 beforeSend: function() {
                     $('.btn-addproduct').attr('disabled', 'disabled');
@@ -85,7 +93,7 @@
                             $('#name').removeClass('is-invalid');
                             $('.errorname').html('');
                         };
-                        if (response.error.stock) {
+                        if (response.error.price) {
                             $('#price').addClass('is-invalid');
                             $('.errorprice').html(response.error.price);
                         } else {
@@ -102,9 +110,12 @@
                     } else {
                         Swal.fire({
                             icon: 'success',
-                            titel: 'success',
+                            title: response.success,
                             text: 'yes'
                         })
+
+                        $('#modaladd').modal('hide');
+                        viewtable();
                     };
 
                 },
