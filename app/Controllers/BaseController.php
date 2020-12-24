@@ -50,7 +50,7 @@ class BaseController extends Controller
 		$this->product = new ModelProduct();
 		$this->order = new ModelOrder();
 		// $this->user = new ModelUser();
-		// $this->admin = new ModelAdmin();
+		$this->admin = new ModelAdmin();
 		// $this->statusorder = new ModelStatus();
 		$this->notif = new Notifications();
 		$this->config    = new \Config\Encryption();      // load the configuration for the encryption service

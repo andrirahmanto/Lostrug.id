@@ -41,6 +41,12 @@ $routes->post('/admin/product/createProduct', 'Product::createProduct');
 $routes->post('/admin/product/viewedit', 'Product::viewedit');
 $routes->post('/admin/product/updateProduct', 'Product::updateProduct');
 $routes->post('/admin/product/deleteProduct', 'Product::deleteProduct');
+// account Admin
+$routes->get('/admin/account/admin', 'AccountAdmin::index');
+$routes->get('/admin/account/admin/viewtable', 'AccountAdmin::viewtable');
+$routes->get('/admin/account/admin/viewadd', 'AccountAdmin::viewadd');
+// account User
+$routes->get('/admin/account/user', 'Admin::index');
 // Order
 $routes->get('/admin/order', 'Order::index');
 

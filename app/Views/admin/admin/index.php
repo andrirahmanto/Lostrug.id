@@ -9,10 +9,10 @@
                 <a class="nav-link" href="<?= base_url('admin/order'); ?>">Order</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="<?= base_url('admin/product'); ?>">Product</a>
+                <a class="nav-link" href="<?= base_url('admin/product'); ?>">Product</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/account/admin'); ?>">Admin</a>
+                <a class="nav-link active" href="<?= base_url('admin/account/admin'); ?>">Admin</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('admin/account/user'); ?>">User</a>
@@ -21,7 +21,7 @@
     </div>
     <div class="card-body">
         <h3>Table Product</h3>
-        <a type="button" class="btn btn-success float-right mb-3 addbutton">Add Product</a>
+        <a type="button" class="btn btn-success float-right mb-3 addbutton">Add Admin</a>
         <div class="viewtable"></div>
     </div>
 </div>
@@ -34,7 +34,7 @@
 <script>
     function viewtable() {
         $.ajax({
-            url: "<?= base_url('admin/product/viewtable'); ?>",
+            url: "<?= base_url('admin/account/admin/viewtable'); ?>",
             dataType: "json",
             success: function(response) {
                 $('.viewtable').html(response.data);
@@ -49,11 +49,11 @@
         // get table
         viewtable();
 
-        // open modal add product
+        // open modal add account admin
         $('.addbutton').click(function(e) {
             e.preventDefault();
             $.ajax({
-                url: "<?= base_url('admin/product/viewadd'); ?>",
+                url: "<?= base_url('admin/account/admin/viewadd'); ?>",
                 dataType: "json",
                 success: function(response) {
                     $('.viewmodal').html(response.data).show();
