@@ -66,13 +66,13 @@
         });
     });
 
-    function edit(product_id) {
+    function edit(admin_id) {
         $.ajax({
             type: "post",
-            url: "<?= base_url('admin/product/viewedit'); ?>",
+            url: "<?= base_url('admin/account/admin/viewedit'); ?>",
             dataType: "json",
             data: {
-                product_id: product_id
+                admin_id: admin_id
             },
             success: function(response) {
                 if (response.success) {

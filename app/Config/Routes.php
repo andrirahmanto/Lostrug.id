@@ -45,6 +45,7 @@ $routes->post('/admin/product/deleteProduct', 'Product::deleteProduct');
 $routes->get('/admin/account/admin', 'AccountAdmin::index');
 $routes->get('/admin/account/admin/viewtable', 'AccountAdmin::viewtable');
 $routes->get('/admin/account/admin/viewadd', 'AccountAdmin::viewadd');
+$routes->post('/admin/account/admin/createAdmin', 'AccountAdmin::createAdmin');
 // account User
 $routes->get('/admin/account/user', 'Admin::index');
 // Order

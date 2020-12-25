@@ -3,8 +3,6 @@
         <tr>
             <th>No</th>
             <th>Name</th>
-            <th>Name</th>
-            <th>Name</th>
             <th>Email</th>
             <th>Password</th>
             <th>Actions</th>
@@ -14,8 +12,6 @@
         <?php foreach ($admin as $key => $data) { ?>
             <tr>
                 <td><?php echo $key + 1; ?></td>
-                <td><?php echo $data['admin_name']; ?></td>
-                <td><?php echo $data['admin_name']; ?></td>
                 <td><?php echo $data['admin_name']; ?></td>
                 <td><?php echo $data['admin_email']; ?></td>
                 <td><?php echo $data['admin_password']; ?></td>
