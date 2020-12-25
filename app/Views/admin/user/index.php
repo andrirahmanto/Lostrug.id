@@ -62,7 +62,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "post",
-                    url: "<?= base_url('admin/account/user/deleteProduct'); ?>",
+                    url: "<?= base_url('admin/account/user/deleteUser'); ?>",
                     dataType: "json",
                     data: {
                         user_id: user_id

@@ -22,4 +22,19 @@ class AccountUser extends BaseController
             exit('Sorry, the request could not be processed');
         }
     }
+
+    public function deleteUser()
+    {
+        if ($this->request->isAJAX()) {
+            $user_id = $this->request->getVar('user_id');
+            // delete data
+            $this->user->delete($user_id);
+            $msg = [
+                'success' => 'Success Delete User'
+            ];
+            echo json_encode($msg);
+        } else {
+            exit('Sorry, the request could not be processed');
+        }
+    }
 }

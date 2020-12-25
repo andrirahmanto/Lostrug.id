@@ -52,7 +52,7 @@ $routes->post('/admin/account/admin/deleteAdmin', 'AccountAdmin::deleteAdmin');
 // account User
 $routes->get('/admin/account/user', 'AccountUser::index');
 $routes->get('/admin/account/user/viewtable', 'AccountUser::viewtable');
-$routes->post('/admin/account/user/deleteAdmin', 'AccountUser::deleteAdmin');
+$routes->post('/admin/account/user/deleteUser', 'AccountUser::deleteUser');
 // Order
 $routes->get('/admin/order', 'Order::index');
 
