@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <label>Name</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" class="form-control" id="name" name="name" value="<?= $name; ?>" required>
                         <div class="invalid-feedback errorname"></div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label>Email</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="email" name="email" required>
+                        <input type="text" class="form-control" id="email" name="email" value="<?= $email; ?>" required>
                         <div class="invalid-feedback erroremail"></div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label>Password</label>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <input type="password" class="form-control" id="password" name="password" value="<?= $password; ?>" required>
                         <div class="invalid-feedback errorpassword"></div>
                     </div>
                 </div>
