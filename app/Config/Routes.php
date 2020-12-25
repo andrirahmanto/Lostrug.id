@@ -50,7 +50,9 @@ $routes->post('/admin/account/admin/viewedit', 'AccountAdmin::viewedit');
 $routes->post('/admin/account/admin/updateAdmin', 'AccountAdmin::updateAdmin');
 $routes->post('/admin/account/admin/deleteAdmin', 'AccountAdmin::deleteAdmin');
 // account User
-$routes->get('/admin/account/user', 'Admin::index');
+$routes->get('/admin/account/user', 'AccountUser::index');
+$routes->get('/admin/account/user/viewtable', 'AccountUser::viewtable');
+$routes->post('/admin/account/user/deleteAdmin', 'AccountUser::deleteAdmin');
 // Order
 $routes->get('/admin/order', 'Order::index');
 
