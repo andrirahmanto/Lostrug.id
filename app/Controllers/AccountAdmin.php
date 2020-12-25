@@ -139,4 +139,19 @@ class AccountAdmin extends BaseController
             exit('Sorry, the request could not be processed');
         };
     }
+
+    public function deleteAdmin()
+    {
+        if ($this->request->isAJAX()) {
+            $admin_id = $this->request->getVar('admin_id');
+            // delete data
+            $this->admin->delete($admin_id);
+            $msg = [
+                'success' => 'Success Delete Admin'
+            ];
+            echo json_encode($msg);
+        } else {
+            exit('Sorry, the request could not be processed');
+        }
+    }
 }

@@ -48,6 +48,7 @@ $routes->get('/admin/account/admin/viewadd', 'AccountAdmin::viewadd');
 $routes->post('/admin/account/admin/createAdmin', 'AccountAdmin::createAdmin');
 $routes->post('/admin/account/admin/viewedit', 'AccountAdmin::viewedit');
 $routes->post('/admin/account/admin/updateAdmin', 'AccountAdmin::updateAdmin');
+$routes->post('/admin/account/admin/deleteAdmin', 'AccountAdmin::deleteAdmin');
 // account User
 $routes->get('/admin/account/user', 'Admin::index');
 // Order
