@@ -13,7 +13,16 @@ class ModelOrder extends Model
     [
         'user_id',
         'product_id',
-        'order_key'
+        'order_key',
+        'order_numberphone',
+        'order_address',
+        'order_size',
+        'order_amount',
+        'order_ongkir',
+        'order_status',
+        'order_payment',
+        'order_payment_method',
+        'order_payment_image',
     ];
 
     protected $useTimestamps = true;
