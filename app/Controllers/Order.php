@@ -36,6 +36,28 @@ class Order extends BaseController
         }
     }
 
+    public function viewedit()
+    {
+        if ($this->request->isAJAX()) {
+            $order_id = $this->request->getVar('order_id');
+            $order = $this->order->where('order_id', $order_id)->first();
+            $order['order_product'] = $this->product->find($order['product_id']);
+            $order['order_user'] = $this->user->find($order['user_id']);
+            $order['order_status'] = $this->status->find($order['status_id']);
+            $statusorder = $this->status->findAll();
+            $data = [
+                'order' => $order,
+                'statusorder' => $statusorder
+            ];
+            $msg = [
+                'success' => view('admin/order/modaledit', $data)
+            ];
+            echo json_encode($msg);
+        } else {
+            exit('Sorry, the request could not be processed');
+        }
+    }
+
     public function test()
     {
         // $pesanans = $this->pesanan->getPesanan();
@@ -54,18 +76,29 @@ class Order extends BaseController
         // }
         // $data['pesanans'] = $array_pesanans;
 
-        $orders = $this->order->findAll();
-        $array_orders = [];
-        foreach ($orders as $key => $order) {
-            $user = $this->user->find($order['user_id']);
-            $order['order_user'] = $user;
-            $product = $this->product->find($order['product_id']);
-            $order['order_product'] = $product;
-            $status = $this->status->find($order['status_id']);
-            $order['order_status'] = $status;
-            array_push($array_orders, $order);
-        }
-        dd($array_orders);
-        $data['orders'] = $array_orders;
+        // $orders = $this->order->findAll();
+        // $array_orders = [];
+        // foreach ($orders as $key => $order) {
+        //     $user = $this->user->find($order['user_id']);
+        //     $order['order_user'] = $user;
+        //     $product = $this->product->find($order['product_id']);
+        //     $order['order_product'] = $product;
+        //     $status = $this->status->find($order['status_id']);
+        //     $order['order_status'] = $status;
+        //     array_push($array_orders, $order);
+        // }
+        // dd($array_orders);
+        // $data['orders'] = $array_orders;
+
+        $order_id = 30;
+        $order_id = $this->request->getVar('order_id');
+        $order = $this->order->first($order_id);
+        $order['order_product'] = $this->product->find($order['product_id']);
+        $order['order_user'] = $this->user->find($order['user_id']);
+        $order['order_status'] = $this->status->find($order['status_id']);
+        $statusorder = $this->status->findAll();
+        $data['order'] = $order;
+        $data['statusorder'] = $statusorder;
+        echo view('admin/order/modaledit.php', $data);
     }
 }

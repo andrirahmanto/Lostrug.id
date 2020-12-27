@@ -80,7 +80,7 @@ class AccountAdmin extends BaseController
     {
         if ($this->request->isAJAX()) {
             $admin_id = $this->request->getVar('admin_id');
-            $admin = $this->admin->find($admin_id);
+            $admin = $this->admin->where('admin_id', $admin_id)->first();
             $data = [
                 'id' => $admin['admin_id'],
                 'name' => $admin['admin_name'],

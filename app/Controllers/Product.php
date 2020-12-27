@@ -90,7 +90,7 @@ class Product extends BaseController
     {
         if ($this->request->isAJAX()) {
             $product_id = $this->request->getVar('product_id');
-            $product = $this->product->find($product_id);
+            $product = $this->product->where('product_id', $product_id)->first();
             $data = [
                 'id' => $product['product_id'],
                 'name' => $product['product_name'],
@@ -180,7 +180,7 @@ class Product extends BaseController
             if ($oldimage != NULL || $oldimage != '') {
                 unlink('assets/image/' . $oldimage);
             };
-            // delete data
+            // delete data            
             $this->product->delete($product_id);
             $msg = [
                 'success' => 'Success Delete Product'

@@ -56,11 +56,11 @@ $routes->post('/admin/account/user/deleteUser', 'AccountUser::deleteUser');
 // Order
 $routes->get('/admin/order', 'Order::index');
 $routes->get('/admin/order/viewtable', 'Order::viewtable');
-// $routes->get('/admin/order/viewadd', 'Order::viewadd');
-// $routes->post('/admin/order/createOrder', 'Order::createOrder');
-// $routes->post('/admin/order/viewedit', 'Order::viewedit');
-// $routes->post('/admin/order/updateOrder', 'Order::updateOrder');
-// $routes->post('/admin/order/deleteOrder', 'Order::deleteOrder');
+$routes->get('/admin/order/viewadd', 'Order::viewadd');
+$routes->post('/admin/order/createOrder', 'Order::createOrder');
+$routes->post('/admin/order/viewedit', 'Order::viewedit');
+$routes->post('/admin/order/updateOrder', 'Order::updateOrder');
+$routes->post('/admin/order/deleteOrder', 'Order::deleteOrder');
 
 
 /**
