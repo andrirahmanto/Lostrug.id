@@ -1,4 +1,4 @@
-<table id="tabel-orders" class="table table-bordered table-hover">
+<table id="tabel-products" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>No</th>
@@ -32,7 +32,7 @@
 <script>
     $(document).ready(function() {
         // datatable
-        $('#tabel-orders').DataTable({
+        $('#tabel-products').DataTable({
             "responsive": true,
             "autoWidth": false,
         });
