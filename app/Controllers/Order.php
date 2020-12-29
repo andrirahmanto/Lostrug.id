@@ -83,6 +83,21 @@ class Order extends BaseController
         };
     }
 
+    public function deleteOrder()
+    {
+        if ($this->request->isAJAX()) {
+            $order_id = $this->request->getVar('order_id');
+            // delete data            
+            $this->order->delete($order_id);
+            $msg = [
+                'success' => 'Success Delete Order'
+            ];
+            echo json_encode($msg);
+        } else {
+            exit('Sorry, the request could not be processed');
+        }
+    }
+
     public function test()
     {
         // $pesanans = $this->pesanan->getPesanan();

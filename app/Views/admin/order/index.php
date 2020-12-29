@@ -69,10 +69,10 @@
         });
     };
 
-    function del(product_id) {
+    function del(order_id) {
         Swal.fire({
             title: 'Are you sure?',
-            text: "You won't be able to delete this!",
+            text: "You won't be able to delete this order!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -82,10 +82,10 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "post",
-                    url: "<?= base_url('admin/product/deleteProduct'); ?>",
+                    url: "<?= base_url('admin/order/deleteOrder'); ?>",
                     dataType: "json",
                     data: {
-                        product_id: product_id
+                        order_id: order_id
                     },
                     success: function(response) {
                         if (response.success) {
