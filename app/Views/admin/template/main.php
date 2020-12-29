@@ -49,44 +49,19 @@
     <!-- container -->
     <div class="container">
         <!-- Data Admin -->
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-4 col-12">
-                <div class="card text-center pemberitahuan">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-12">
-                <div class="card text-center pemberitahuan">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-12">
-                <div class="card text-center pemberitahuan">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="viewdataadmin"></div>
         <!-- end Data Admin -->
+        <a type="button" class="btn btn-success mb-3 btn-refreshbutton" onclick="viewdataadmin()">Refresh <i class="fa fa-sync-alt"></i></a>
 
+        <!-- Table  -->
         <?= $this->renderSection('table'); ?>
+        <!-- end Table -->
 
     </div>
     <!-- end container -->
 
     <!-- footer -->
-    <footer class="footer-black">
+    <footer class="footer-black fixed-bottom">
         <div class="footer-margin">
             <div class="container">
                 <div class="row">
@@ -97,6 +72,7 @@
             </div>
         </div>
     </footer>
+    <br><br><br><br><br><br><br>
 
 </body>
 
@@ -108,6 +84,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
+    function viewdataadmin() {
+        $.ajax({
+            url: "<?= base_url('admin/order/viewdataadmin'); ?>",
+            dataType: "json",
+            beforeSend: function() {
+                $('.btn-refreshbutton').attr('disabled', 'disabled');
+                $('.btn-refreshbutton').html('Refresh <i class="fa fa-spin fa-sync-alt"></i>');
+            },
+            complete: function() {
+                $('.btn-refreshbutton').removeAttr('disabled');
+                $('.btn-refreshbutton').html('Refresh <i class="fa fa-sync-alt"></i>');
+            },
+            success: function(response) {
+                $('.viewdataadmin').html(response.data);
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        })
+    }
+
+    $(document).ready(function() {
+        // get table
+        viewdataadmin();
+    });
 </script>
 <?= $this->renderSection('script'); ?>
 </body>

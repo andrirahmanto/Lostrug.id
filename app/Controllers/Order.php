@@ -11,6 +11,35 @@ class Order extends BaseController
         echo view('admin/order/index.php', $data);
     }
 
+    public function viewdataadmin()
+    {
+        if ($this->request->isAJAX()) {
+            $users = $this->user->findAll();
+            $users_amount = count($users);
+            $orders = $this->order->findAll();
+            $order_amount = count($orders);
+            $orders_done = $this->order->where('status_id', 4)->findAll();
+            $income = 0;
+            foreach ($orders_done as $orders) {
+                $income += $orders['order_total_price'];
+            }
+
+            $data = [
+                'user' => $users_amount,
+                'order' => $order_amount,
+                'income' => $income
+            ];
+
+            $msg = [
+                'data' => view('admin/template/infoadmin', $data)
+            ];
+            echo json_encode($msg);
+        } else {
+            exit('Sorry, the request could not be processed');
+        }
+    }
+
+
     public function viewtable()
     {
         if ($this->request->isAJAX()) {
@@ -130,15 +159,32 @@ class Order extends BaseController
         // dd($array_orders);
         // $data['orders'] = $array_orders;
 
-        $order_id = 30;
-        $order_id = $this->request->getVar('order_id');
-        $order = $this->order->first($order_id);
-        $order['order_product'] = $this->product->find($order['product_id']);
-        $order['order_user'] = $this->user->find($order['user_id']);
-        $order['order_status'] = $this->status->find($order['status_id']);
-        $statusorder = $this->status->findAll();
-        $data['order'] = $order;
-        $data['statusorder'] = $statusorder;
-        echo view('admin/order/modaledit.php', $data);
+        // $order_id = 30;
+        // $order_id = $this->request->getVar('order_id');
+        // $order = $this->order->first($order_id);
+        // $order['order_product'] = $this->product->find($order['product_id']);
+        // $order['order_user'] = $this->user->find($order['user_id']);
+        // $order['order_status'] = $this->status->find($order['status_id']);
+        // $statusorder = $this->status->findAll();
+        // $data['order'] = $order;
+        // $data['statusorder'] = $statusorder;
+        // echo view('admin/order/modaledit.php', $data);
+
+        $users = $this->user->findAll();
+        $users_amount = count($users);
+        $orders = $this->order->findAll();
+        $order_amount = count($orders);
+        $orders_done = $this->order->where('status_id', 4)->findAll();
+        $income = 0;
+        foreach ($orders_done as $orders) {
+            $income += $orders['order_total_price'];
+        }
+
+        $data = [
+            'user' => $users_amount,
+            'order' => $order_amount,
+            'income' => $income
+        ];
+        dd($data);
     }
 }

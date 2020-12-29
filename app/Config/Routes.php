@@ -55,6 +55,7 @@ $routes->get('/admin/account/user/viewtable', 'AccountUser::viewtable');
 $routes->post('/admin/account/user/deleteUser', 'AccountUser::deleteUser');
 // Order
 $routes->get('/admin/order', 'Order::index');
+$routes->get('/admin/order/viewdataadmin', 'Order::viewdataadmin');
 $routes->get('/admin/order/viewtable', 'Order::viewtable');
 $routes->get('/admin/order/viewadd', 'Order::viewadd');
 $routes->post('/admin/order/createOrder', 'Order::createOrder');

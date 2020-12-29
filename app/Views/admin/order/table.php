@@ -1,4 +1,4 @@
-<table id="tabel-orders display nowarp" class="table table-bordered table-hover">
+<table id="tabel-orders" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>No</th>
