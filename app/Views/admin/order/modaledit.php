@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?= form_open_multipart('admin/product/updateOrder', ['class' => 'formeditproduct']); ?>
+            <?= form_open_multipart('admin/order/updateOrder', ['class' => 'formeditorder']); ?>
             <?= csrf_field(); ?>
             <!-- , 'enctype' => 'multipart/form-data' -->
             <div class="modal-body">
@@ -149,7 +149,7 @@
                 </div>
                 <!-- Status Pembayaran -->
                 <?php
-                $payments = ['waiting', 'paid']
+                $payments = ['unpaid', 'paid']
                 ?>
                 <div class="form-group">
                     <label>Status Pembayaran</label>
@@ -179,7 +179,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary btn-editproduct">Save Change</button>
+                <button type="submit" class="btn btn-primary btn-editorder">Save Change</button>
             </div>
             <?= form_close(); ?>
         </div>
@@ -187,9 +187,9 @@
 </div>
 <Script>
     $(document).ready(function() {
-        $('.formeditproduct').submit(function(e) {
+        $('.formeditorder').submit(function(e) {
             e.preventDefault();
-            let form = $('.formeditproduct')[0];
+            let form = $('.formeditorder')[0];
             let data = new FormData(form);
             $.ajax({
                 type: "post",
@@ -201,30 +201,15 @@
                 cache: false,
                 dataType: "json",
                 beforeSend: function() {
-                    $('.btn-editproduct').attr('disabled', 'disabled');
-                    $('.btn-editproduct').html('<i class="fa fa-spin fa-spinner"></i>');
+                    $('.btn-editorder').attr('disabled', 'disabled');
+                    $('.btn-editorder').html('<i class="fa fa-spin fa-spinner"></i>');
                 },
                 complete: function() {
-                    $('.btn-editproduct').removeAttr('disabled');
-                    $('.btn-editproduct').html('Edit Product');
+                    $('.btn-editorder').removeAttr('disabled');
+                    $('.btn-editorder').html('Edit Product');
                 },
                 success: function(response) {
-                    if (response.error) {
-                        if (response.error.price) {
-                            $('#price').addClass('is-invalid');
-                            $('.errorprice').html(response.error.price);
-                        } else {
-                            $('#price').removeClass('is-invalid');
-                            $('.errorprice').html('');
-                        };
-                        if (response.error.stock) {
-                            $('#stock').addClass('is-invalid');
-                            $('.errorstock').html(response.error.stock);
-                        } else {
-                            $('#stock').removeClass('is-invalid');
-                            $('.errorstock').html('');
-                        };
-                    } else {
+                    if (response.success) {
                         Swal.fire({
                             icon: 'success',
                             title: 'success',

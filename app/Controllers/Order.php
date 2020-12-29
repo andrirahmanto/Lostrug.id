@@ -58,6 +58,31 @@ class Order extends BaseController
         }
     }
 
+    public function updateOrder()
+    {
+        if ($this->request->isAJAX()) {
+            // requst input id
+            $id = $this->request->getVar('id');
+
+            $data = [
+                'status_id' => $this->request->getVar('status_id'),
+                'order_payment' => $this->request->getVar('order_payment'),
+                'order_payment_method' => $this->request->getVar('order_payment_method')
+            ];
+
+            $this->order->update($id, $data);
+
+            $msg = [
+                'success' => 'Success Update Order'
+            ];
+
+
+            echo json_encode($msg);
+        } else {
+            exit('Sorry, the request could not be processed');
+        };
+    }
+
     public function test()
     {
         // $pesanans = $this->pesanan->getPesanan();
