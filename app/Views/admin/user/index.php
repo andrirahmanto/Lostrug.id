@@ -9,19 +9,18 @@
                 <a class="nav-link" href="<?= base_url('admin/order'); ?>">Order</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="<?= base_url('admin/product'); ?>">Product</a>
+                <a class="nav-link" href="<?= base_url('admin/product'); ?>">Product</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('admin/account/admin'); ?>">Admin</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/account/user'); ?>">User</a>
+                <a class="nav-link active" href="<?= base_url('admin/account/user'); ?>">User</a>
             </li>
         </ul>
     </div>
     <div class="card-body">
-        <h3>Table Product</h3>
-        <a type="button" class="btn btn-success float-right mb-3 addbutton">Add Product</a>
+        <h3>Table Account User</h3>
         <div class="viewtable"></div>
     </div>
 </div>
@@ -34,7 +33,7 @@
 <script>
     function viewtable() {
         $.ajax({
-            url: "<?= base_url('admin/product/viewtable'); ?>",
+            url: "<?= base_url('admin/account/user/viewtable'); ?>",
             dataType: "json",
             success: function(response) {
                 $('.viewtable').html(response.data);
@@ -48,45 +47,9 @@
     $(document).ready(function() {
         // get table
         viewtable();
-
-        // open modal add product
-        $('.addbutton').click(function(e) {
-            e.preventDefault();
-            $.ajax({
-                url: "<?= base_url('admin/product/viewadd'); ?>",
-                dataType: "json",
-                success: function(response) {
-                    $('.viewmodal').html(response.data).show();
-                    $('#modaladd').modal('show');
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
-                }
-            });
-        });
     });
 
-    function edit(product_id) {
-        $.ajax({
-            type: "post",
-            url: "<?= base_url('admin/product/viewedit'); ?>",
-            dataType: "json",
-            data: {
-                product_id: product_id
-            },
-            success: function(response) {
-                if (response.success) {
-                    $('.viewmodal').html(response.success).show();
-                    $('#modaledit').modal('show');
-                }
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
-            }
-        });
-    };
-
-    function del(product_id) {
+    function del(user_id) {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to delete this!",
@@ -99,10 +62,10 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "post",
-                    url: "<?= base_url('admin/product/deleteProduct'); ?>",
+                    url: "<?= base_url('admin/account/user/deleteUser'); ?>",
                     dataType: "json",
                     data: {
-                        product_id: product_id
+                        user_id: user_id
                     },
                     success: function(response) {
                         if (response.success) {

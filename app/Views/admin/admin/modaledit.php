@@ -1,61 +1,46 @@
-<div class="modal fade" id="modaladd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content modal-lg">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Add Product</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit Admin</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?= form_open_multipart('admin/product/createProduct', ['class' => 'formaddproduct']); ?>
+            <?= form_open_multipart('admin/account/admin/updateAdmin', ['class' => 'formeditadmin']); ?>
             <?= csrf_field(); ?>
             <!-- , 'enctype' => 'multipart/form-data' -->
             <div class="modal-body">
+                <!-- id -->
+                <input type="hidden" value="<?= $id; ?>" name="id">
                 <!-- name -->
                 <div class="form-group">
                     <label>Name</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" class="form-control" id="name" name="name" value="<?= $name; ?>" required>
                         <div class="invalid-feedback errorname"></div>
                     </div>
                 </div>
-                <!-- info -->
+                <!-- email -->
                 <div class="form-group">
-                    <label>info</label>
+                    <label>Email</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="info" name="info" required>
-                        <div class="invalid-feedback errorinfo"></div>
+                        <input type="text" class="form-control" id="email" name="email" value="<?= $email; ?>" required>
+                        <div class="invalid-feedback erroremail"></div>
                     </div>
                 </div>
-                <!-- Price -->
+                <!-- password -->
                 <div class="form-group">
-                    <label>Price</label>
+                    <label>Password</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="price" name="price" required>
-                        <div class="invalid-feedback errorprice"></div>
-                    </div>
-                </div>
-                <!-- Stock -->
-                <div class="form-group">
-                    <label>Stock</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="stock" name="stock" required>
-                        <div class="invalid-feedback errorstock"></div>
-                    </div>
-                </div>
-                <!-- image -->
-                <div class="form-group">
-                    <label>Image</label>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <input type="file" id="image" name="image" accept="image/*" required>
-                        </div>
+                        <input type="password" class="form-control" id="password" name="password" value="<?= $password; ?>" required>
+                        <div class="invalid-feedback errorpassword"></div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary btn-addproduct">Add Product</button>
+                <button type="submit" class="btn btn-primary btn-editadmin">Save Change</button>
             </div>
             <?= form_close(); ?>
         </div>
@@ -63,9 +48,9 @@
 </div>
 <Script>
     $(document).ready(function() {
-        $('.formaddproduct').submit(function(e) {
+        $('.formeditadmin').submit(function(e) {
             e.preventDefault();
-            let form = $('.formaddproduct')[0];
+            let form = $('.formeditadmin')[0];
             let data = new FormData(form);
             $.ajax({
                 type: "post",
@@ -77,12 +62,12 @@
                 cache: false,
                 dataType: "json",
                 beforeSend: function() {
-                    $('.btn-addproduct').attr('disabled', 'disabled');
-                    $('.btn-addproduct').html('<i class="fa fa-spin fa-spinner"></i>');
+                    $('.btn-editadmin').attr('disabled', 'disabled');
+                    $('.btn-editadmin').html('<i class="fa fa-spin fa-spinner"></i>');
                 },
                 complete: function() {
-                    $('.btn-addproduct').removeAttr('disabled');
-                    $('.btn-addproduct').html('Add Product');
+                    $('.btn-editadmin').removeAttr('disabled');
+                    $('.btn-editadmin').html('Save Change');
                 },
                 success: function(response) {
                     if (response.error) {
@@ -93,19 +78,19 @@
                             $('#name').removeClass('is-invalid');
                             $('.errorname').html('');
                         };
-                        if (response.error.price) {
-                            $('#price').addClass('is-invalid');
-                            $('.errorprice').html(response.error.price);
+                        if (response.error.email) {
+                            $('#email').addClass('is-invalid');
+                            $('.erroremail').html(response.error.email);
                         } else {
-                            $('#price').removeClass('is-invalid');
-                            $('.errorprice').html('');
+                            $('#email').removeClass('is-invalid');
+                            $('.erroremail').html('');
                         };
-                        if (response.error.stock) {
-                            $('#stock').addClass('is-invalid');
-                            $('.errorstock').html(response.error.stock);
+                        if (response.error.password) {
+                            $('#password').addClass('is-invalid');
+                            $('.errorpassword').html(response.error.password);
                         } else {
-                            $('#stock').removeClass('is-invalid');
-                            $('.errorstock').html('');
+                            $('#password').removeClass('is-invalid');
+                            $('.errorpassword').html('');
                         };
                     } else {
                         Swal.fire({
@@ -114,7 +99,7 @@
                             text: response.success
                         })
 
-                        $('#modaladd').modal('hide');
+                        $('#modaledit').modal('hide');
                         viewtable();
                     };
 

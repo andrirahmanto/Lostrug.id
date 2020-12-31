@@ -33,7 +33,7 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = ['form', 'date', 'url'];
+	protected $helpers = ['form', 'date', 'url', 'file'];
 	protected $session = null;
 	protected $request = null;
 	protected $product;
@@ -49,9 +49,9 @@ class BaseController extends Controller
 		$this->request = \Config\Services::request();
 		$this->product = new ModelProduct();
 		$this->order = new ModelOrder();
-		// $this->user = new ModelUser();
-		// $this->admin = new ModelAdmin();
-		// $this->statusorder = new ModelStatus();
+		$this->user = new ModelUser();
+		$this->admin = new ModelAdmin();
+		$this->status = new ModelStatus();
 		$this->notif = new Notifications();
 		$this->config    = new \Config\Encryption();      // load the configuration for the encryption service
 		// $this->encrypter = \Config\Services::encrypter($this->config); // start the encryption service
