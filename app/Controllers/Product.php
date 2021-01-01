@@ -73,10 +73,18 @@ class Product extends BaseController
                 ];
 
                 $this->product->insert($data);
-
+                $product_id = $this->product->getInsertID();
                 $msg = [
                     'success' => 'Success Add Product'
                 ];
+
+                //log
+                $log = [
+                    'log_email' => $_SESSION['admin_email'],
+                    'log_role' => 'admin',
+                    'log_activity' => 'create product #' . $product_id
+                ];
+                $this->log->insert($log);
             };
 
 
@@ -161,6 +169,14 @@ class Product extends BaseController
                 $msg = [
                     'success' => 'Success Update Product'
                 ];
+
+                //log
+                $log = [
+                    'log_email' => $_SESSION['admin_email'],
+                    'log_role' => 'admin',
+                    'log_activity' => 'edit product #' . $id
+                ];
+                $this->log->insert($log);
             };
 
 
@@ -185,6 +201,15 @@ class Product extends BaseController
             $msg = [
                 'success' => 'Success Delete Product'
             ];
+
+            //log
+            $log = [
+                'log_email' => $_SESSION['admin_email'],
+                'log_role' => 'admin',
+                'log_activity' => 'delete product #' . $product_id
+            ];
+            $this->log->insert($log);
+
             echo json_encode($msg);
         } else {
             exit('Sorry, the request could not be processed');

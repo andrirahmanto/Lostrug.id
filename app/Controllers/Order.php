@@ -105,6 +105,14 @@ class Order extends BaseController
                 'success' => 'Success Update Order'
             ];
 
+            //log
+            $log = [
+                'log_email' => $_SESSION['admin_email'],
+                'log_role' => 'admin',
+                'log_activity' => 'edit order #' . $id
+            ];
+            $this->log->insert($log);
+
 
             echo json_encode($msg);
         } else {
@@ -121,70 +129,18 @@ class Order extends BaseController
             $msg = [
                 'success' => 'Success Delete Order'
             ];
+
+            //log
+            $log = [
+                'log_email' => $_SESSION['admin_email'],
+                'log_role' => 'admin',
+                'log_activity' => 'edit order #' . $order_id
+            ];
+            $this->log->insert($log);
+
             echo json_encode($msg);
         } else {
             exit('Sorry, the request could not be processed');
         }
-    }
-
-    public function test()
-    {
-        // $pesanans = $this->pesanan->getPesanan();
-        // $array_pesanans = [];
-        // foreach ($pesanans as $key => $pesanan) {
-        //     $user = $this->user->getUserById($pesanan['user_id']);
-        //     $pesanan['pesanan_user'] = $user['user_name'];
-        //     if ($pesanan['pesanan_payment'] == 0) {
-        //         $pesanan['pesanan_payment'] = 'Belum Melakukan Pembayaran';
-        //     } else {
-        //         $pesanan['pesanan_payment'] = 'Sudah Melakukan Pembayaran';
-        //     }
-        //     $getstatus = $this->statusorder->getStatus($pesanan['pesanan_status']);
-        //     $pesanan['pesanan_status_keterangan'] = $getstatus['status_keterangan'];
-        //     array_push($array_pesanans, $pesanan);
-        // }
-        // $data['pesanans'] = $array_pesanans;
-
-        // $orders = $this->order->findAll();
-        // $array_orders = [];
-        // foreach ($orders as $key => $order) {
-        //     $user = $this->user->find($order['user_id']);
-        //     $order['order_user'] = $user;
-        //     $product = $this->product->find($order['product_id']);
-        //     $order['order_product'] = $product;
-        //     $status = $this->status->find($order['status_id']);
-        //     $order['order_status'] = $status;
-        //     array_push($array_orders, $order);
-        // }
-        // dd($array_orders);
-        // $data['orders'] = $array_orders;
-
-        // $order_id = 30;
-        // $order_id = $this->request->getVar('order_id');
-        // $order = $this->order->first($order_id);
-        // $order['order_product'] = $this->product->find($order['product_id']);
-        // $order['order_user'] = $this->user->find($order['user_id']);
-        // $order['order_status'] = $this->status->find($order['status_id']);
-        // $statusorder = $this->status->findAll();
-        // $data['order'] = $order;
-        // $data['statusorder'] = $statusorder;
-        // echo view('admin/order/modaledit.php', $data);
-
-        $users = $this->user->findAll();
-        $users_amount = count($users);
-        $orders = $this->order->findAll();
-        $order_amount = count($orders);
-        $orders_done = $this->order->where('status_id', 4)->findAll();
-        $income = 0;
-        foreach ($orders_done as $orders) {
-            $income += $orders['order_total_price'];
-        }
-
-        $data = [
-            'user' => $users_amount,
-            'order' => $order_amount,
-            'income' => $income
-        ];
-        dd($data);
     }
 }

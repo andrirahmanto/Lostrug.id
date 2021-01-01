@@ -46,6 +46,14 @@ class Auth extends BaseController
 
                         $this->session->set($admin_session);
 
+                        //log
+                        $log = [
+                            'log_email' => $_SESSION['admin_email'],
+                            'log_role' => 'admin',
+                            'log_activity' => 'login'
+                        ];
+                        $this->log->insert($log);
+
                         $msg = [
                             'success' => [
                                 'link' => '/admin',
@@ -76,6 +84,14 @@ class Auth extends BaseController
 
     public function adminLogout()
     {
+        //log
+        $log = [
+            'log_email' => $_SESSION['admin_email'],
+            'log_role' => 'admin',
+            'log_activity' => 'logout'
+        ];
+        $this->log->insert($log);
+
         $session_item = array('admin_id', 'admin_name', 'admin_email');
         $this->session->remove($session_item);
         $this->session->destroy();

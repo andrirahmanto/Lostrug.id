@@ -63,10 +63,19 @@ class AccountAdmin extends BaseController
                 ];
 
                 $this->admin->insert($data);
+                $admin_id = $this->admin->getInsertID();
 
                 $msg = [
                     'success' => 'Success Add Admin'
                 ];
+
+                //log
+                $log = [
+                    'log_email' => $_SESSION['admin_email'],
+                    'log_role' => 'admin',
+                    'log_activity' => 'create admin #' . $admin_id
+                ];
+                $this->log->insert($log);
             };
 
 
@@ -131,6 +140,14 @@ class AccountAdmin extends BaseController
                 $msg = [
                     'success' => 'Success Update Admin'
                 ];
+
+                //log
+                $log = [
+                    'log_email' => $_SESSION['admin_email'],
+                    'log_role' => 'admin',
+                    'log_activity' => 'edit admin #' . $id
+                ];
+                $this->log->insert($log);
             };
 
 
@@ -149,6 +166,15 @@ class AccountAdmin extends BaseController
             $msg = [
                 'success' => 'Success Delete Admin'
             ];
+
+            //log
+            $log = [
+                'log_email' => $_SESSION['admin_email'],
+                'log_role' => 'admin',
+                'log_activity' => 'delete admin #' . $admin_id
+            ];
+            $this->log->insert($log);
+
             echo json_encode($msg);
         } else {
             exit('Sorry, the request could not be processed');

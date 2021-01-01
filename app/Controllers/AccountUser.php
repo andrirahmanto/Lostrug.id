@@ -27,11 +27,21 @@ class AccountUser extends BaseController
     {
         if ($this->request->isAJAX()) {
             $user_id = $this->request->getVar('user_id');
+            $user = $this->user->where('user_id', $user_id)->first();
             // delete data
             $this->user->delete($user_id);
             $msg = [
                 'success' => 'Success Delete User'
             ];
+
+            //log
+            $log = [
+                'log_email' => $_SESSION['admin_email'],
+                'log_role' => 'admin',
+                'log_activity' => 'delete user ' . $user['user_email']
+            ];
+            $this->log->insert($log);
+
             echo json_encode($msg);
         } else {
             exit('Sorry, the request could not be processed');

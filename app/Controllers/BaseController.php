@@ -22,6 +22,7 @@ use App\Models\ModelOrder;
 use App\Models\ModelUser;
 use App\Models\ModelAdmin;
 use App\Models\ModelStatus;
+use App\Models\ModelLog;
 
 class BaseController extends Controller
 {
@@ -42,6 +43,7 @@ class BaseController extends Controller
 	protected $admin;
 	protected $status;
 	protected $notif;
+	protected $log;
 
 	public function __construct()
 	{
@@ -52,6 +54,7 @@ class BaseController extends Controller
 		$this->user = new ModelUser();
 		$this->admin = new ModelAdmin();
 		$this->status = new ModelStatus();
+		$this->log = new ModelLog();
 		$this->notif = new Notifications();
 		$this->config    = new \Config\Encryption();      // load the configuration for the encryption service
 		// $this->encrypter = \Config\Services::encrypter($this->config); // start the encryption service
