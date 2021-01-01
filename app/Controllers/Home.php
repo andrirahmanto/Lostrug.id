@@ -20,11 +20,22 @@ class Home extends BaseController
 
 	public function detail()
 	{
-		echo view('detail.php');
+		echo view('layout/header');
+		echo view('detail');
+		echo view('layout/footer');
 	}
+
 	
-	public function coba()
+	public function form()
 	{
-		echo "hello dunia";
+		echo view('layout/header');
+		echo view('form');
+		echo view('layout/footer');
+	}
+	public function orders()
+	{
+		echo view('layout/header');
+		echo view('orders');
+		echo view('layout/footer');
 	}
 }
