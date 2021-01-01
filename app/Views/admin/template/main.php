@@ -39,8 +39,14 @@
                 ADMIN LOSTRUG
             </a>
             <form class="form-inline">
-                <i class="namaadmin"><span>Nama Admin</span></i>
-                <i class="fas fa-sign-out-alt icon-nav"></i>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; margin-top:-25px">
+                        Hi, <?= $_SESSION['admin_name']; ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/admin/logout">Logout</a>
+                    </div>
+                </li>
             </form>
         </div>
     </nav>
@@ -74,43 +80,40 @@
     </footer>
     <br><br><br><br><br><br><br>
 
-</body>
+    <!-- end footer -->
 
-</html>
-<!-- end footer -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first (move to header), then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        function viewdataadmin() {
+            $.ajax({
+                url: "<?= base_url('admin/order/viewdataadmin'); ?>",
+                dataType: "json",
+                beforeSend: function() {
+                    $('.btn-refreshbutton').attr('disabled', 'disabled');
+                    $('.btn-refreshbutton').html('Refresh <i class="fa fa-spin fa-sync-alt"></i>');
+                },
+                complete: function() {
+                    $('.btn-refreshbutton').removeAttr('disabled');
+                    $('.btn-refreshbutton').html('Refresh <i class="fa fa-sync-alt"></i>');
+                },
+                success: function(response) {
+                    $('.viewdataadmin').html(response.data);
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+                }
+            })
+        }
 
-<!-- Optional JavaScript -->
-<!-- jQuery first (move to header), then Popper.js, then Bootstrap JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script>
-    function viewdataadmin() {
-        $.ajax({
-            url: "<?= base_url('admin/order/viewdataadmin'); ?>",
-            dataType: "json",
-            beforeSend: function() {
-                $('.btn-refreshbutton').attr('disabled', 'disabled');
-                $('.btn-refreshbutton').html('Refresh <i class="fa fa-spin fa-sync-alt"></i>');
-            },
-            complete: function() {
-                $('.btn-refreshbutton').removeAttr('disabled');
-                $('.btn-refreshbutton').html('Refresh <i class="fa fa-sync-alt"></i>');
-            },
-            success: function(response) {
-                $('.viewdataadmin').html(response.data);
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
-            }
-        })
-    }
-
-    $(document).ready(function() {
-        // get table
-        viewdataadmin();
-    });
-</script>
-<?= $this->renderSection('script'); ?>
+        $(document).ready(function() {
+            // get table
+            viewdataadmin();
+        });
+    </script>
+    <?= $this->renderSection('script'); ?>
 </body>
 
 </html>
