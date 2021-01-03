@@ -35,6 +35,8 @@ $routes->setAutoRoute(true);
 // guest
 $routes->get('/', 'User::index');
 $routes->get('/catalogue', 'User::catalogue');
+$routes->post('/login', 'Auth::loginGoogle');
+$routes->get('/logout', 'Auth::userLogout');
 $routes->get('/admin/login', 'Auth::index');
 $routes->post('/admin/sendLogin', 'Auth::sendLogin');
 $routes->get('/admin/logout', 'Auth::adminLogout');

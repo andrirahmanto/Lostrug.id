@@ -97,4 +97,50 @@ class Auth extends BaseController
         $this->session->destroy();
         return redirect()->to(base_url('/admin/login'));
     }
+
+    public function loginGoogle()
+    {
+        $googletoken = $this->request->getPost('google-token');
+
+        $result = file_get_contents('https://oauth2.googleapis.com/tokeninfo?id_token=' . $googletoken);
+        $result_json = json_decode($result, true);
+
+        if (isset($result_json['email'])) {
+            $email = $result_json['email'];
+            $name = $result_json['name'];
+            $user = $this->user->where('user_email', $email)->first();
+            if (count((array) $user) > 0) {
+                $data_session = array(
+                    'user_id' => $user['user_id'],
+                    'user_email' => $user['user_email'],
+                    'user_name' => $user['user_name']
+                );
+                $this->session->set($data_session);
+            } else {
+                $user_name = $name;
+                $user_email = $email;
+
+                $data = [
+                    'user_name' => $user_name,
+                    'user_email' => $user_email,
+                ];
+                $this->user->insert($data);
+                $user_id = $this->user->getInsertID();
+                $data_session = array(
+                    'user_id' => $user_id,
+                    'user_email' => $email,
+                    'user_name' => $name,
+                );
+                $this->session->set($data_session);
+            }
+        }
+    }
+
+    public function userLogout()
+    {
+        $session_item = array('user_id', 'user_name', 'user_email');
+        $this->session->remove($session_item);
+        $this->session->destroy();
+        return redirect()->to(base_url('/'));
+    }
 }

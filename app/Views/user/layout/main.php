@@ -83,7 +83,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark navbar-balck">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="../assets/image/brand.png" alt="" class="brand-image">
+                <img src="<?= base_url(); ?>/assets/image/brand.png" alt="" class="brand-image">
             </a>
             <div class="form-inline">
                 <?php if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_name'])) : ?>
@@ -94,13 +94,13 @@
                     </script>
                 <?php else : ?>
                     <li class="nav-item dropdown">
-                        <a href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                            <i class="fas fa-user icon-nav"></i>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; margin-top:-25px">
+                            Hi, <?= $_SESSION['user_name']; ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="orders.html">My Order</a>
+                            <a class="dropdown-item" href="/myorder">My Order</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="index.html">Logout</a>
+                            <a class="dropdown-item" href="/logout">Logout</a>
                         </div>
                     </li>
                 <?php endif; ?>
