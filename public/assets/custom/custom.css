@@ -47,6 +47,7 @@ html, body {
     background-color: white;
     box-shadow: 0px 15px 12px rgba(0, 0, 0, 0.22), 0px 19px 38px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    margin-bottom: 40px;
 }
 
 .text-price{
@@ -103,6 +104,7 @@ footer {
     background-color: white;
     box-shadow: 0px 15px 12px rgba(0, 0, 0, 0.22), 0px 19px 38px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    margin-bottom: 30px;
 }
 
 .text-price-catalogue{

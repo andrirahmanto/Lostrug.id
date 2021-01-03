@@ -31,14 +31,30 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
+// guest
+$routes->get('/', 'User::index');
+$routes->get('/catalogue', 'User::catalogue');
 $routes->get('/admin/login', 'Auth::index');
 $routes->post('/admin/sendLogin', 'Auth::sendLogin');
 $routes->get('/admin/logout', 'Auth::adminLogout');
 
+// user
+
+
+//admin
 $routes->group('', ['filter' => 'adminfilter'], function ($routes) {
-	// Product
-	$routes->get('/admin', 'Product::index');
+	// Order
+	$routes->get('/admin', 'Order::index');
+	$routes->get('/admin/order', 'Order::index');
+	$routes->get('/admin/order/viewdataadmin', 'Order::viewdataadmin');
+	$routes->get('/admin/order/viewtable', 'Order::viewtable');
+	$routes->get('/admin/order/viewadd', 'Order::viewadd');
+	$routes->post('/admin/order/createOrder', 'Order::createOrder');
+	$routes->post('/admin/order/viewedit', 'Order::viewedit');
+	$routes->post('/admin/order/updateOrder', 'Order::updateOrder');
+	$routes->post('/admin/order/deleteOrder', 'Order::deleteOrder');
+	// Product	
 	$routes->get('/admin/product', 'Product::index');
 	$routes->get('/admin/product/viewtable', 'Product::viewtable');
 	$routes->get('/admin/product/viewadd', 'Product::viewadd');
@@ -58,16 +74,9 @@ $routes->group('', ['filter' => 'adminfilter'], function ($routes) {
 	$routes->get('/admin/account/user', 'AccountUser::index');
 	$routes->get('/admin/account/user/viewtable', 'AccountUser::viewtable');
 	$routes->post('/admin/account/user/deleteUser', 'AccountUser::deleteUser');
-	// Order
-	$routes->get('/admin/order', 'Order::index');
-	$routes->get('/admin/order/viewdataadmin', 'Order::viewdataadmin');
-	$routes->get('/admin/order/viewtable', 'Order::viewtable');
-	$routes->get('/admin/order/viewadd', 'Order::viewadd');
-	$routes->post('/admin/order/createOrder', 'Order::createOrder');
-	$routes->post('/admin/order/viewedit', 'Order::viewedit');
-	$routes->post('/admin/order/updateOrder', 'Order::updateOrder');
-	$routes->post('/admin/order/deleteOrder', 'Order::deleteOrder');
 });
+
+
 
 
 /**

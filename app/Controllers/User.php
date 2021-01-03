@@ -2,20 +2,24 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class User extends BaseController
 {
 	public function index()
 	{
-		echo view('layout/header');
-		echo view('index');
-		echo view('layout/footer');
+		$products = $this->product->findAll();
+		$data = [
+			'products' => $products
+		];
+		echo view('user/home/userhome', $data);
 	}
 
 	public function catalogue()
 	{
-		echo view('layout/header');
-		echo view('catalogue');
-		echo view('layout/footer');
+		$products = $this->product->findAll();
+		$data = [
+			'products' => $products
+		];
+		echo view('user/catalogue/catalogue', $data);
 	}
 
 	public function detail()
@@ -25,7 +29,7 @@ class Home extends BaseController
 		echo view('layout/footer');
 	}
 
-	
+
 	public function form()
 	{
 		echo view('layout/header');

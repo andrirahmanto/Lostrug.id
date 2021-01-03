@@ -1,48 +1,48 @@
-<footer class="footer-black">
-        <div class="footer-margin">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <!--Brand-->
-                        <img src="<?= base_url(); ?>/assets/image/brand.png" alt="" class="brand-image">
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <!--Column1-->
-                        <div class="footer-pad">
-                            <h4 class="footer-heading">Quick Link</h4>
-                            <ul class="footer-item">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Category</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <!--Column1-->
-                        <div class="footer-pad">
-                            <h4 class="footer-heading">About Us</h4>
-                            <ul class="footer-item">
-                                <li><a href="#">Team</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Address</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <h4 class="footer-heading">Follow Us</h4>
-                        <ul class="social-network social-circle footer-item">
-                            <li><a href="#" class="icoFacebook" title="Facebook">Instagram</i></a></li>
-                            <li><a href="#" class="icoLinkedin" title="Linkedin">Tokopedia</i></a></li>
+<footer class="footer-black sticky-bottom">
+    <div class="footer-margin">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <!--Brand-->
+                    <img src="<?= base_url(); ?>/assets/image/brand.png" alt="" class="brand-image">
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <!--Column1-->
+                    <div class="footer-pad">
+                        <h4 class="footer-heading">Quick Link</h4>
+                        <ul class="footer-item">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Category</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 copy">
-                        <p class="text-center footer-copyright">&copy; Copyright 2018 - Company Name. All rights reserved.</p>
+                <div class="col-md-3 col-sm-6">
+                    <!--Column1-->
+                    <div class="footer-pad">
+                        <h4 class="footer-heading">About Us</h4>
+                        <ul class="footer-item">
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Address</a></li>
+                        </ul>
                     </div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="footer-heading">Follow Us</h4>
+                    <ul class="social-network social-circle footer-item">
+                        <li><a href="#" class="icoFacebook" title="Facebook">Instagram</i></a></li>
+                        <li><a href="#" class="icoLinkedin" title="Linkedin">Tokopedia</i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 copy">
+                    <p class="text-center footer-copyright">&copy; Copyright 2018 - Company Name. All rights reserved.</p>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
 </body>
 
