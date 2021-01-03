@@ -22,12 +22,15 @@
                 <td>
 
                     <div class="btn-group">
+                        <!-- pay button -->
                         <?php if ($data['status_id'] == 1) : ?>
                             <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalpayorder"><i class="fas fa-money-bill-wave"></i></a>
                         <?php else : ?>
                             <a href="#" class="btn btn-secondary btn-sm disabled" data-toggle="modal" data-target="#modalpayorder"><i class="fas fa-money-bill-wave"></i></a>
                         <?php endif; ?>
+                        <!-- info button -->
                         <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modaleditorder"><i class="fas fa-info-circle"></i></a>
+                        <!-- delete button -->
                         <?php if ($data['status_id'] < 3) : ?>
                             <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin membatalkan pesanan ini?')"><i class="fas fa-trash-alt"></i></a>
                         <?php else : ?>
