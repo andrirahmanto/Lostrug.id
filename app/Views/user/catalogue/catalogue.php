@@ -2,7 +2,7 @@
 
 
 <?= $this->section('title'); ?>
-<title>HOME | LOSTRUG</title>
+<title>CATALOGUE | LOSTRUG</title>
 <?= $this->endSection(); ?>
 
 <?= $this->section('content'); ?>
