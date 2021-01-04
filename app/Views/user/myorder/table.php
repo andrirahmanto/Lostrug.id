@@ -29,12 +29,12 @@
                             <a href="#" class="btn btn-secondary btn-sm disabled" data-toggle="modal" data-target="#modalpayorder"><i class="fas fa-money-bill-wave"></i></a>
                         <?php endif; ?>
                         <!-- info button -->
-                        <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modaleditorder"><i class="fas fa-info-circle"></i></a>
-                        <!-- delete button -->
+                        <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modaleditorder" onclick="detail('<?php echo $data['order_id']; ?>')"><i class="fas fa-info-circle"></i></a>
+                        <!-- cancel button -->
                         <?php if ($data['status_id'] < 3) : ?>
-                            <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin membatalkan pesanan ini?')"><i class="fas fa-trash-alt"></i></a>
+                            <a href="#" class="btn btn-danger btn-sm" onclick="cancel('<?php echo $data['order_id']; ?>')"><i class="fas fa-trash-alt"></i></a>
                         <?php else : ?>
-                            <a href="#" class="btn btn-secondary btn-sm disabled" onclick="return confirm('Apakah Anda yakin ingin membatalkan pesanan ini?')"><i class="fas fa-trash-alt"></i></a>
+                            <a href="#" class="btn btn-secondary btn-sm disabled"><i class="fas fa-trash-alt"></i></a>
                         <?php endif; ?>
                     </div>
                 </td>

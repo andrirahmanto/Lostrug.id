@@ -53,6 +53,55 @@ class User extends BaseController
 		}
 	}
 
+	public function detailorder()
+	{
+		if ($this->request->isAJAX()) {
+			$order_id = $this->request->getVar('order_id');
+			$order = $this->order->where('order_id', $order_id)->first();
+			$order['order_product'] = $this->product->find($order['product_id']);
+			$order['order_user'] = $this->user->find($order['user_id']);
+			$order['order_status'] = $this->status->find($order['status_id']);
+			$statusorder = $this->status->findAll();
+			$data = [
+				'order' => $order,
+				'statusorder' => $statusorder
+			];
+			$msg = [
+				'success' => view('user/myorder/detailorder', $data)
+			];
+			echo json_encode($msg);
+		} else {
+			exit('Sorry, the request could not be processed');
+		}
+	}
+
+	public function cancelorder()
+	{
+		if ($this->request->isAJAX()) {
+			$order_id = $this->request->getVar('order_id');
+			$data = [
+				'status_id' => 5
+			];
+			// update data            
+			$this->order->update($order_id, $data);
+			$msg = [
+				'success' => 'Success Cancel Order'
+			];
+
+			//log
+			// $log = [
+			// 	'log_email' => $_SESSION['admin_email'],
+			// 	'log_role' => 'admin',
+			// 	'log_activity' => 'edit order #' . $order_id
+			// ];
+			// $this->log->insert($log);
+
+			echo json_encode($msg);
+		} else {
+			exit('Sorry, the request could not be processed');
+		}
+	}
+
 	public function detail()
 	{
 		echo view('layout/header');

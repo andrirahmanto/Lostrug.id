@@ -42,8 +42,11 @@ $routes->post('/admin/sendLogin', 'Auth::sendLogin');
 $routes->get('/admin/logout', 'Auth::adminLogout');
 
 // user
+//myorder
 $routes->get('/myorder', 'User::myorder');
 $routes->get('/myorder/viewtable', 'User::viewtable');
+$routes->post('/myorder/detailorder', 'User::detailorder');
+$routes->post('/myorder/cancelorder', 'User::cancelorder');
 
 
 //admin

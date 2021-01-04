@@ -48,6 +48,7 @@
 
 </div>
 <!-- end container -->
+<div class="viewmodal" style="display: none;"></div>
 
 <script>
     function viewtable() {
@@ -63,9 +64,65 @@
         })
     }
 
+    function detail(order_id) {
+        $.ajax({
+            type: "post",
+            url: "<?= base_url('/myorder/detailorder'); ?>",
+            dataType: "json",
+            data: {
+                order_id: order_id
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('.viewmodal').html(response.success).show();
+                    $('#modaldetail').modal('show');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    };
+
     $(document).ready(function() {
         // get table
         viewtable();
     });
+
+    function cancel(order_id) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to cancel this order!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, cancel it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "post",
+                    url: "<?= base_url('/myorder/cancelorder'); ?>",
+                    dataType: "json",
+                    data: {
+                        order_id: order_id
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'success',
+                                text: response.success
+                            })
+                            viewtable();
+                        }
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+                    }
+                });
+            }
+        })
+    };
 </script>
 <?= $this->endSection(); ?>
