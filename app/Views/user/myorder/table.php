@@ -24,7 +24,7 @@
                     <div class="btn-group">
                         <!-- pay button -->
                         <?php if ($data['status_id'] == 1) : ?>
-                            <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalpayorder"><i class="fas fa-money-bill-wave"></i></a>
+                            <a href="#" class="btn btn-success btn-sm" onclick="payment('<?php echo $data['order_id']; ?>')"><i class="fas fa-money-bill-wave"></i></a>
                         <?php else : ?>
                             <a href="#" class="btn btn-secondary btn-sm disabled" data-toggle="modal" data-target="#modalpayorder"><i class="fas fa-money-bill-wave"></i></a>
                         <?php endif; ?>

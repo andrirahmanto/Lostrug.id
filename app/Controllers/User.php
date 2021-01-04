@@ -102,6 +102,56 @@ class User extends BaseController
 		}
 	}
 
+	public function viewmodalpay()
+	{
+		if ($this->request->isAJAX()) {
+			$order_id = $this->request->getVar('order_id');
+			$order = $this->order->where('order_id', $order_id)->first();
+			$data = [
+				'order' => $order
+			];
+			$msg = [
+				'success' => view('user/myorder/modalpay', $data)
+			];
+			echo json_encode($msg);
+		} else {
+			exit('Sorry, the request could not be processed');
+		}
+	}
+
+	public function uploadimagepay()
+	{
+		if ($this->request->isAJAX()) {
+			// requst input id
+			$id = $this->request->getVar('id');
+
+			$image = $this->request->getFile('image');
+			$image->move('assets/image/payment', 'order' . $id . '.' . $image->getExtension());
+			$imgname = $image->getName();
+			$data = [
+				'order_payment_image' => $imgname,
+				'status_id' => 2
+			];
+
+			$this->order->update($id, $data);
+
+			$msg = [
+				'success' => 'Success Upload Proof of Payment'
+			];
+
+			//log
+			// $log = [
+			// 	'log_email' => $_SESSION['admin_email'],
+			// 	'log_role' => 'admin',
+			// 	'log_activity' => 'edit product #' . $id
+			// ];
+			// $this->log->insert($log);			
+			echo json_encode($msg);
+		} else {
+			exit('Sorry, the request could not be processed');
+		};
+	}
+
 	public function detail()
 	{
 		echo view('layout/header');

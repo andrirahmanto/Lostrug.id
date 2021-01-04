@@ -64,6 +64,26 @@
         })
     }
 
+    function payment(order_id) {
+        $.ajax({
+            type: "post",
+            url: "<?= base_url('/myorder/viewmodalpay'); ?>",
+            dataType: "json",
+            data: {
+                order_id: order_id
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('.viewmodal').html(response.success).show();
+                    $('#modalpay').modal('show');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    };
+
     function detail(order_id) {
         $.ajax({
             type: "post",

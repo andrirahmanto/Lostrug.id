@@ -37,7 +37,7 @@
                         data: form.serialize()
                     }).done(function(data) {
                         // alert(data);
-                        window.location.href = '/';
+                        window.location.href = '<?php current_url() ?>';
                     }).fail(function(data) {
                         alert("Login Tidak Berhasil");
                     });

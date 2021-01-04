@@ -47,6 +47,8 @@ $routes->get('/myorder', 'User::myorder');
 $routes->get('/myorder/viewtable', 'User::viewtable');
 $routes->post('/myorder/detailorder', 'User::detailorder');
 $routes->post('/myorder/cancelorder', 'User::cancelorder');
+$routes->post('/myorder/viewmodalpay', 'User::viewmodalpay');
+$routes->post('/myorder/uploadimagepay', 'User::uploadimagepay');
 
 
 //admin

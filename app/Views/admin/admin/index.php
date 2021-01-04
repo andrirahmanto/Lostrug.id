@@ -86,42 +86,6 @@
         });
     };
 
-    function del(product_id) {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to delete this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "post",
-                    url: "<?= base_url('admin/product/deleteProduct'); ?>",
-                    dataType: "json",
-                    data: {
-                        product_id: product_id
-                    },
-                    success: function(response) {
-                        if (response.success) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'success',
-                                text: response.success
-                            })
-                            viewtable();
-                        }
-                    },
-                    error: function(xhr, ajaxOptions, thrownError) {
-                        alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
-                    }
-                });
-            }
-        })
-    };
-
     function del(admin_id) {
         Swal.fire({
             title: 'Are you sure?',
