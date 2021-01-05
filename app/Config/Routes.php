@@ -40,21 +40,21 @@ $routes->get('/logout', 'Auth::userLogout');
 $routes->get('/admin/login', 'Auth::index');
 $routes->post('/admin/sendLogin', 'Auth::sendLogin');
 $routes->get('/admin/logout', 'Auth::adminLogout');
+$routes->post('/order/viewmodaldetail', 'User::viewmodaldetail');
 
 // user
-//myorder
-$routes->get('/myorder', 'User::myorder');
-$routes->get('/myorder/viewtable', 'User::viewtable');
-$routes->post('/myorder/detailorder', 'User::detailorder');
-$routes->post('/myorder/cancelorder', 'User::cancelorder');
-$routes->post('/myorder/viewmodalpay', 'User::viewmodalpay');
-$routes->post('/myorder/uploadimagepay', 'User::uploadimagepay');
-// order
-$routes->post('/order/viewmodaldetail', 'User::viewmodaldetail');
-$routes->post('/order/nextorder', 'User::nextorder');
-$routes->post('/order/createOrder', 'User::createOrder');
-
-
+$routes->group('', ['filter' => 'userfilter'], function ($routes) {
+	//myorder
+	$routes->get('/myorder', 'User::myorder');
+	$routes->get('/myorder/viewtable', 'User::viewtable');
+	$routes->post('/myorder/cancelorder', 'User::cancelorder');
+	$routes->post('/myorder/detailorder', 'User::detailorder');
+	$routes->post('/myorder/viewmodalpay', 'User::viewmodalpay');
+	$routes->post('/myorder/uploadimagepay', 'User::uploadimagepay');
+	// order
+	$routes->post('/order/nextorder', 'User::nextorder');
+	$routes->post('/order/createOrder', 'User::createOrder');
+});
 
 //admin
 $routes->group('', ['filter' => 'adminfilter'], function ($routes) {

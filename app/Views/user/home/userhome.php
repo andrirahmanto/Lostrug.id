@@ -60,7 +60,7 @@
     <div class="row">
         <?php foreach ($products as $product) : ?>
             <div class="col-md-4 col-12">
-                <a href="#">
+                <a href="" onclick="productDetail('<?php echo $product['product_id']; ?>')" data-toggle="modal">
                     <div class="card card-product mx-auto">
                         <img src="<?= base_url(); ?>/assets/image/<?= $product['product_image']; ?>" alt="" class="image-card mx-auto">
                         <div class="card-body">
@@ -71,33 +71,32 @@
                 </a>
             </div>
         <?php endforeach; ?>
-        <!-- <div class="col-4">
-            <a href="#">
-                <div class="card card-product mx-auto">
-                    <img src="../assets/image/1604991085067.jpg" alt="" class="image-card mx-auto">
-                    <div class="card-body">
-                        <h5 class="card-title text-center text-product-name">'Miracle of Struggle' <br> T-shirt
-                            (white)</h5>
-                        <h5 class="text-center text-price">Rp 189.000</h5>
-                    </div>
-                </div>
-        </div>
-        </a>
-        <div class="col-4">
-            <a href="#">
-                <div class="card card-product mx-auto">
-                    <img src="../assets/image/1604991081160.jpg" alt="" class="image-card mx-auto">
-                    <div class="card-body">
-                        <h5 class="card-title text-center text-product-name">'Lost Sruggle' <br> T-shirt (black)
-                        </h5>
-                        <h5 class="text-center text-price">Rp 189.000</h5>
-                    </div>
-                </div>
-            </a>
-        </div> -->
     </div>
     <!-- end new product -->
-
 </div>
 <!-- end container -->
+<div class="viewmodal" style="display: none;"></div>
+<script>
+    function productDetail(product_id) {
+        $.ajax({
+            type: "post",
+            url: "<?= base_url('/order/viewmodaldetail'); ?>",
+            dataType: "json",
+            data: {
+                product_id: product_id
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('.viewmodal').html(response.success).show();
+                    $('#modaldetail').modal('show');
+                } else {
+                    alert('error');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    };
+</script>
 <?= $this->endSection(); ?>

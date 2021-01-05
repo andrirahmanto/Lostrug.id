@@ -116,6 +116,13 @@ class Auth extends BaseController
                     'user_name' => $user['user_name']
                 );
                 $this->session->set($data_session);
+                //log
+                $log = [
+                    'log_email' => $_SESSION['user_email'],
+                    'log_role' => 'user',
+                    'log_activity' => 'Login'
+                ];
+                $this->log->insert($log);
             } else {
                 $user_name = $name;
                 $user_email = $email;
@@ -132,6 +139,13 @@ class Auth extends BaseController
                     'user_name' => $name,
                 );
                 $this->session->set($data_session);
+                //log
+                $log = [
+                    'log_email' => $_SESSION['user_email'],
+                    'log_role' => 'user',
+                    'log_activity' => 'Create Account'
+                ];
+                $this->log->insert($log);
             }
         }
     }
@@ -141,6 +155,13 @@ class Auth extends BaseController
         $session_item = array('user_id', 'user_name', 'user_email');
         $this->session->remove($session_item);
         $this->session->destroy();
+        //log
+        $log = [
+            'log_email' => $_SESSION['user_email'],
+            'log_role' => 'user',
+            'log_activity' => 'Logout'
+        ];
+        $this->log->insert($log);
         return redirect()->to(base_url('/'));
     }
 }
