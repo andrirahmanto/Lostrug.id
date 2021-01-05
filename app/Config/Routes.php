@@ -51,6 +51,8 @@ $routes->post('/myorder/viewmodalpay', 'User::viewmodalpay');
 $routes->post('/myorder/uploadimagepay', 'User::uploadimagepay');
 // order
 $routes->post('/order/viewmodaldetail', 'User::viewmodaldetail');
+$routes->post('/order/nextorder', 'User::nextorder');
+$routes->post('/order/createOrder', 'User::createOrder');
 
 
 
