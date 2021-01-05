@@ -289,25 +289,4 @@ class User extends BaseController
 			exit('Sorry, the request could not be processed');
 		};
 	}
-
-	public function detail()
-	{
-		echo view('layout/header');
-		echo view('detail');
-		echo view('layout/footer');
-	}
-
-
-	public function form()
-	{
-		echo view('layout/header');
-		echo view('form');
-		echo view('layout/footer');
-	}
-	public function products()
-	{
-		echo view('layout/header');
-		echo view('orders');
-		echo view('layout/footer');
-	}
 }
