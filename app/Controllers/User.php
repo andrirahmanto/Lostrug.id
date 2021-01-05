@@ -152,6 +152,23 @@ class User extends BaseController
 		};
 	}
 
+	public function viewmodaldetail()
+	{
+		if ($this->request->isAJAX()) {
+			$product_id = $this->request->getVar('product_id');
+			$product = $this->product->where('product_id', $product_id)->first();
+			$data = [
+				'product' => $product
+			];
+			$msg = [
+				'success' => view('user/order/modaldetail', $data)
+			];
+			echo json_encode($msg);
+		} else {
+			exit('Sorry, the request could not be processed');
+		}
+	}
+
 	public function detail()
 	{
 		echo view('layout/header');
@@ -166,7 +183,7 @@ class User extends BaseController
 		echo view('form');
 		echo view('layout/footer');
 	}
-	public function orders()
+	public function products()
 	{
 		echo view('layout/header');
 		echo view('orders');
