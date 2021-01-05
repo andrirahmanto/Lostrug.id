@@ -190,8 +190,8 @@ class User extends BaseController
 				];
 				// valid
 			} else {
-				$user_id = '9';
-				// $user_id = $_SESSION['user_id'];
+				// $user_id = '9';
+				$user_id = $_SESSION['user_id'];
 				$user = $this->user->where('user_id', $user_id)->first();
 				$product_id = $this->request->getVar('product_id');
 				$product = $this->product->where('product_id', $product_id)->first();

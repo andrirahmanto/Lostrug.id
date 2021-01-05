@@ -152,9 +152,6 @@ class Auth extends BaseController
 
     public function userLogout()
     {
-        $session_item = array('user_id', 'user_name', 'user_email');
-        $this->session->remove($session_item);
-        $this->session->destroy();
         //log
         $log = [
             'log_email' => $_SESSION['user_email'],
@@ -162,6 +159,9 @@ class Auth extends BaseController
             'log_activity' => 'Logout'
         ];
         $this->log->insert($log);
+        $session_item = array('user_id', 'user_name', 'user_email');
+        $this->session->remove($session_item);
+        $this->session->destroy();
         return redirect()->to(base_url('/'));
     }
 }
