@@ -89,12 +89,13 @@ class User extends BaseController
 			];
 
 			//log
-			// $log = [
-			// 	'log_email' => $_SESSION['admin_email'],
-			// 	'log_role' => 'admin',
-			// 	'log_activity' => 'edit order #' . $order_id
-			// ];
-			// $this->log->insert($log);
+			$order = $this->order->where('order_id', $order_id)->first();
+			$log = [
+				'log_email' => $_SESSION['user_email'],
+				'log_role' => 'user',
+				'log_activity' => 'Cancel Order #' . $order['order_key']
+			];
+			$this->log->insert($log);
 
 			echo json_encode($msg);
 		} else {
@@ -140,12 +141,13 @@ class User extends BaseController
 			];
 
 			//log
-			// $log = [
-			// 	'log_email' => $_SESSION['admin_email'],
-			// 	'log_role' => 'admin',
-			// 	'log_activity' => 'edit product #' . $id
-			// ];
-			// $this->log->insert($log);			
+			$order = $this->order->where('order_id', $id)->first();
+			$log = [
+				'log_email' => $_SESSION['user_email'],
+				'log_role' => 'user',
+				'log_activity' => 'Payment and upload a proof #' . $order['order_key']
+			];
+			$this->log->insert($log);
 			echo json_encode($msg);
 		} else {
 			exit('Sorry, the request could not be processed');
@@ -264,6 +266,14 @@ class User extends BaseController
 				];
 
 				$this->order->insert($data);
+
+				//log				
+				$log = [
+					'log_email' => $_SESSION['user_email'],
+					'log_role' => 'user',
+					'log_activity' => 'Order #' . $order_key
+				];
+				$this->log->insert($log);
 
 
 				$msg = [
