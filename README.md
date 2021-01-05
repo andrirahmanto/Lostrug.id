@@ -32,7 +32,7 @@ Untuk melakukan transaksi pada website Lostrug maka dibutuhkan Login, dan Login 
 
 Status Pesanan
 
-Status pesanan dapat dilihat jika pelanggan telah Login dan telah melakukan pemesanan suatu produk, sehingga dapat meng-track pesanan terhadap produk yang diinginkannya sudah sampai tahap apa
+Status pesanan dapat dilihat jika pelanggan telah Login dan telah melakukan pemesanan suatu produk, sehingga dapat meng-track pesanan terhadap produk yang diinginkannya sudah sampai tahap apa.
 
 
 ### Admin
