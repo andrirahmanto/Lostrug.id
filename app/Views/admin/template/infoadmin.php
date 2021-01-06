@@ -3,7 +3,7 @@
         <div class="card text-center pemberitahuan">
             <div class="card-body">
                 <h4 class="card-title"><?= $user; ?></h4>
-                <p class="card-text">Orders</p>
+                <p class="card-text">User</p>
             </div>
         </div>
     </div>
@@ -11,7 +11,7 @@
         <div class="card text-center pemberitahuan">
             <div class="card-body">
                 <h4 class="card-title"><?= $order; ?></h4>
-                <p class="card-text">Users</p>
+                <p class="card-text">Order</p>
             </div>
         </div>
     </div>
