@@ -44,7 +44,6 @@ class Order extends BaseController
     {
         if ($this->request->isAJAX()) {
             $orders = $this->order->orderBy('order_id', 'DESC')->findAll();
-            // $orders = $orders->orderBy('order_id', 'DESC');
             $array_orders = [];
             foreach ($orders as $key => $order) {
                 $user = $this->user->find($order['user_id']);
