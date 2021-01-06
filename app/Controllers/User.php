@@ -32,7 +32,6 @@ class User extends BaseController
 		if ($this->request->isAJAX()) {
 			$user_id = $_SESSION['user_id'];
 			$orders = $this->order->where('user_id', $user_id)->orderBy('order_id', 'DESC')->findAll();
-			// $orders = $orders->orderBy('order_id', 'DESC');
 			$array_orders = [];
 			foreach ($orders as $key => $order) {
 				$user = $this->user->find($order['user_id']);
@@ -190,7 +189,6 @@ class User extends BaseController
 				];
 				// valid
 			} else {
-				// $user_id = '9';
 				$user_id = $_SESSION['user_id'];
 				$user = $this->user->where('user_id', $user_id)->first();
 				$product_id = $this->request->getVar('product_id');
