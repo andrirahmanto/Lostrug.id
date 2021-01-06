@@ -1,5 +1,9 @@
 <?= $this->extend('admin/template/main'); ?>
 
+<?= $this->section('title'); ?>
+<title>ADMIN | ACCOUNT ADMIN</title>
+<?= $this->endSection(); ?>
+
 <?= $this->section('table'); ?>
 <!-- Card -->
 <div class="card text-center">
@@ -20,7 +24,7 @@
         </ul>
     </div>
     <div class="card-body">
-        <h3>Table Product</h3>
+        <h3>Table Account Admin</h3>
         <a type="button" class="btn btn-success float-right mb-3 addbutton">Add Admin</a>
         <div class="viewtable"></div>
     </div>

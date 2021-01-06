@@ -249,6 +249,7 @@ class User extends BaseController
 				$status_id = 1;
 				$order_payment = 0;
 				$order_total_price = $this->request->getVar('order_total_price');
+				$unique_kode = rand(111, 999);
 
 				$data = [
 					'user_id' => $user_id,
@@ -261,7 +262,7 @@ class User extends BaseController
 					'order_ongkir' => $order_ongkir,
 					'status_id' => $status_id,
 					'order_payment' => $order_payment,
-					'order_total_price' => $order_total_price,
+					'order_total_price' => $order_total_price - $unique_kode,
 
 				];
 

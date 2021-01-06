@@ -28,7 +28,12 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/sweetalert2/package/dist/sweetalert2.min.css">
     <script src="<?= base_url(); ?>/assets/sweetalert2/package/dist/sweetalert2.all.min.js"></script>
 
-    <title>Hello, world!</title>
+    <!-- Content  -->
+    <?= $this->renderSection('title'); ?>
+    <!-- end Content -->
+
+    <!-- Logo Icon -->
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>/assets/image/icon2.png">
 </head>
 
 <body>

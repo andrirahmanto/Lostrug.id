@@ -7,7 +7,6 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Signin Template · Bootstrap</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
 
@@ -34,6 +33,11 @@
     <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#563d7c">
 
+    <!-- title -->
+    <title>LOSTRUG ADMIN SIGNIN</title>
+
+    <!-- Logo Icon -->
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>/assets/image/icon2.png">
 
     <style>
         :root {

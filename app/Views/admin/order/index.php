@@ -1,5 +1,9 @@
 <?= $this->extend('admin/template/main'); ?>
 
+<?= $this->section('title'); ?>
+<title>ADMIN | ORDER</title>
+<?= $this->endSection(); ?>
+
 <?= $this->section('table'); ?>
 <!-- Card -->
 <div class="card text-center">
