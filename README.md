@@ -93,11 +93,17 @@ Terdapat 2 Interaction Control, yaitu :
 </p>
 
 ## Prototype Lostrug
-Link Prototype User : https://andrirahmanto.github.io/user/index.html \
-Link Prototype Admin : https://andrirahmanto.github.io/admin/index.html
+Link Prototype User: https://andrirahmanto.github.io/user/index.html \
+Link Prototype Admin: https://andrirahmanto.github.io/admin/index.html
 
 ## Feedback Video
 Link video: https://youtu.be/YiNVFgvAtgA
 
 ## Academic Report Lostrug
 [Academic Report Lostrug](Laporan_Imk.pdf)
+
+## URL LOSTRUG SITE
+Link url website lostrug: http://lostrug.logikalsupply.com
+
+## FINAL REPORT
+[FINAL REPORT LOSTRUG](Final project report.pdf)
