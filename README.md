@@ -106,4 +106,4 @@ Link video: https://youtu.be/YiNVFgvAtgA
 Link url website lostrug: http://lostrug.logikalsupply.com
 
 ## FINAL REPORT
-[FINAL REPORT LOSTRUG](Final project report.pdf)
+[FINAL REPORT](Final project report.pdf)
