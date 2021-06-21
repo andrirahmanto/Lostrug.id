@@ -41,6 +41,8 @@ $routes->get('/admin/login', 'Auth::index');
 $routes->post('/admin/sendLogin', 'Auth::sendLogin');
 $routes->get('/admin/logout', 'Auth::adminLogout');
 $routes->post('/order/viewmodaldetail', 'User::viewmodaldetail');
+$routes->get('/log', 'Log::index');
+$routes->get('/log/viewtable', 'Log::viewtable');
 
 // user
 $routes->group('', ['filter' => 'userfilter'], function ($routes) {
